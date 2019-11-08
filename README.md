@@ -42,9 +42,10 @@ This ERD represents the MVP relationships between our databases
 ---
 
 ## WireFrame
-![Home Page](https://user-images.githubusercontent.com/55125468/68458236-4626e180-01d0-11ea-88fd-10ab75871f90.png)
 ![Landing Page](https://user-images.githubusercontent.com/55125468/68458237-4626e180-01d0-11ea-821f-1bab0285d0a1.png)
-![Profile](https://user-images.githubusercontent.com/55125468/68458238-4626e180-01d0-11ea-8d64-2df4fb8075ee.png)
-![Project Page](https://user-images.githubusercontent.com/55125468/68458239-46bf7800-01d0-11ea-8fd4-2cf6c4587691.png)
 ![Sign-Login Page](https://user-images.githubusercontent.com/55125468/68458240-46bf7800-01d0-11ea-983d-cd51c4acaa4b.png)
 ![Sign-up Page](https://user-images.githubusercontent.com/55125468/68458241-46bf7800-01d0-11ea-86ab-747e2f8536d1.png)
+![Home Page](https://user-images.githubusercontent.com/55125468/68458236-4626e180-01d0-11ea-88fd-10ab75871f90.png)
+![Project Page](https://user-images.githubusercontent.com/55125468/68458239-46bf7800-01d0-11ea-8fd4-2cf6c4587691.png)
+![Profile](https://user-images.githubusercontent.com/55125468/68458238-4626e180-01d0-11ea-8d64-2df4fb8075ee.png)
+
