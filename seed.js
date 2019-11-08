@@ -41,7 +41,7 @@ const main = async () => {
 
   await user1.addProject([Project1, Project3])
   await user2.addProject([Project2, Project3])
-  await user3.addProject([Project1, Project3])
-  await user3.addProject([Project1, Project3])
+  await user3.addProject([Project1, Project2, Project3])
+  await user4.addProject(Project1)
 
 }
