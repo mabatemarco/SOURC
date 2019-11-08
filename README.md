@@ -33,10 +33,10 @@ This ERD represents the MVP relationships between our databases
 
 '/users/:id' : Displays one user, used to view profiles.
 
-'users/:id/projects' : Dhows all projects belonging to user
+'users/:id/projects' : Shows all projects belonging to user
 
-'users/:id/projects/:projectId': Dhows single project in detail
+'users/:id/projects/:projectId': Shows single project in detail
 
-'users/:id/projects/:projectId/members: Dhows the members (and leader) of a project
+'users/:id/projects/:projectId/members: Shows the members (and leader) of a project
 
 ---
