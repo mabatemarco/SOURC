@@ -14,7 +14,29 @@ A friendly experience for new or aged programmers and UX designers who can colla
 - Project is displayed on your account and on the main page
 - Apply to projects with a form button and submit your email and slack username
 
-#### More to come...
 
 --- 
 
+##ERD
+
+This ERD represents the MVP relationships between our databases
+
+![ERD](img/ERD.png)
+
+---
+
+## API endpoints
+
+'/users' : Displays all users, could be useful if we implement a user search.
+
+'/projects' : Displays all projects, could be searched with queries.
+
+'/users/:id' : Displays one user, used to view profiles.
+
+'users/:id/projects' : Dhows all projects belonging to user
+
+'users/:id/projects/:projectId': Dhows single project in detail
+
+'users/:id/projects/:projectId/members: Dhows the members (and leader) of a project
+
+---
