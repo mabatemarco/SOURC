@@ -27,7 +27,7 @@ User.init({
 },
   {
     sequelize,
-    modelName: 'user'
+    modelName: 'users'
   })
 
 Project.init({
@@ -35,7 +35,7 @@ Project.init({
   description: Sequelize.TEXT,
 }, {
   sequelize,
-  modelName: 'project'
+  modelName: 'projects'
 })
 
 Team.init({
@@ -45,21 +45,21 @@ Team.init({
 },
   {
     sequelize,
-    modelName: 'team'
+    modelName: 'teams'
   })
 
 User.belongsToMany(Project,
   {
-    through: "Team",
-    as: "project",
+    through: Team,
+    as: "projects",
     foreignKey: 'user_id',
     otherKey: 'project_id',
     onDelete: 'cascade'
   });
 Project.belongsToMany(User,
   {
-    through: "Team",
-    as: "user",
+    through: Team,
+    as: "users",
     foreignKey: 'project_id',
     otherKey: 'user_id',
     onDelete: 'cascade'

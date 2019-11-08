@@ -44,4 +44,9 @@ const main = async () => {
   await user3.addProject([Project1, Project2, Project3])
   await user4.addProject(Project1)
 
+
+  process.exit()
 }
+
+
+main()
