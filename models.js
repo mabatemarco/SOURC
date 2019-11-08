@@ -44,6 +44,10 @@ Team.init({
   is_leader: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  is_member: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 },
   {
@@ -59,7 +63,7 @@ User.belongsToMany(Project,
     otherKey: 'project_id',
     onDelete: 'cascade'
   });
-  User.hasMany(Team)
+User.hasMany(Team)
 Project.belongsToMany(User,
   {
     through: Team,
@@ -68,7 +72,7 @@ Project.belongsToMany(User,
     otherKey: 'user_id',
     onDelete: 'cascade'
   });
-  Project.hasMany(Team)
+Project.hasMany(Team)
 
 module.exports = {
   sequelize,
