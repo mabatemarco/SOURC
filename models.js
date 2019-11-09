@@ -22,8 +22,8 @@ User.init({
     allowNull: false,
   },
   role: Sequelize.STRING,
+  about_me: Sequelize.TEXT,
   image_url: Sequelize.TEXT,
-  description: Sequelize.TEXT,
 },
   {
     sequelize,
@@ -63,7 +63,7 @@ User.belongsToMany(Project,
     otherKey: 'project_id',
     onDelete: 'cascade'
   });
-User.hasMany(Team)
+// Team.hasMany(User)
 Project.belongsToMany(User,
   {
     through: Team,
@@ -72,7 +72,7 @@ Project.belongsToMany(User,
     otherKey: 'user_id',
     onDelete: 'cascade'
   });
-Project.hasMany(Team)
+// Team.hasMany(Project)
 
 module.exports = {
   sequelize,
