@@ -1,22 +1,106 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #bada55;
 }
 
-.App-logo {
-  height: 40vmin;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #09d3ac;
+.landPage {
+  background-color: #000000;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: fill .5s ease-out forwards 3.5s;
+}
+
+.logoBackgrnd {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fillGreen .9s ease-out forwards 4s;
+  z-index: 1;
+}
+
+ .logo path:nth-child(1) {
+  stroke-dasharray: 502px;
+  stroke-dashoffset: 502px;
+  animation: lines 2s ease-out forwards;
+}
+
+ .logo path:nth-child(2) {
+  stroke-dasharray: 227.1px;
+  stroke-dashoffset: 227.1px;
+  animation: lines 2s ease-out forwards .3s;
+}
+
+ .logo path:nth-child(3) {
+  stroke-dasharray: 174px;
+  stroke-dashoffset: 174px;
+  animation: lines 2s ease-out forwards .6s;
+}
+
+ .logo path:nth-child(4) {
+  stroke-dasharray: 227.1px;
+  stroke-dashoffset: 227.1px;
+  animation: lines 2s ease-out forwards .9s;
+}
+
+ .logo path:nth-child(5) {
+  stroke-dasharray: 349px;
+  stroke-dashoffset: 349px;
+  animation: lines 2s ease-out forwards 1.2s;
+}
+
+ .logo path:nth-child(6) {
+  stroke-dasharray: 495.1px;
+  stroke-dashoffset: 495.1px;
+  animation: lines 2s ease-out forwards 1.5s;
+}
+
+ .logo path:nth-child(7) {
+  stroke-dasharray: 366.2px;
+  stroke-dashoffset: 366.2px;
+  animation: lines 2s ease-out forwards 1.7s;
+}
+
+
+@keyframes lines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: white;
+  }
+}
+
+@keyframes fillGreen {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--primary);
+  }
 }

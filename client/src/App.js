@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Link, Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage'
 import Animation from './components/Animation'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -8,7 +9,7 @@ import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'
 import Welcome from './components/Welcome'
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
 
   }
@@ -16,10 +17,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header/>
+        <Animation />
       </div>
     );
   }
 }
 
-export default App;
