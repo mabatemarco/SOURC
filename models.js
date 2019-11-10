@@ -58,19 +58,19 @@ Team.init({
 User.belongsToMany(Project,
   {
     through: Team,
-    as: "projects",
-    foreignKey: 'user_id',
-    otherKey: 'project_id',
-    onDelete: 'cascade'
+    // as: "projects",
+    // foreignKey: 'user_id',
+    // otherKey: 'project_id',
+    // onDelete: 'cascade'
   });
 // Team.hasMany(User)
 Project.belongsToMany(User,
   {
     through: Team,
-    as: "users",
-    foreignKey: 'project_id',
-    otherKey: 'user_id',
-    onDelete: 'cascade'
+    // as: "users",
+    // foreignKey: 'project_id',
+    // otherKey: 'user_id',
+    // onDelete: 'cascade'
   });
 // Team.hasMany(Project)
 
