@@ -76,9 +76,21 @@ const editUser = async (userId, data) => {
   const response = await api.put(`/users/${userId}`, data);
   return response.data
 }
-  
+
 //delete user, takes user id
 const deleteUser = async (id) => {
   const response = await api.delete(`/users/${id}`);
+  return response.data
+}
+
+//user application to project, takes project id and user id
+const apply = async (projectId, userId) => {
+  const response = await api.put(`projects/${projectId}/${userId}`);
+  return response.data
+}
+
+//approve member to project, takes project id and user id
+const apply = async (projectId, userId) => {
+  const response = await api.put(`projects/${projectId}/${userId}`);
   return response.data
 }

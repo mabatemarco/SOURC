@@ -32,6 +32,15 @@ projectRouter.post('/create/:creatorId', async (req, res) => {
   const user = await User.findByPk(id);
   const project = await Project.create(data);
   await project.setUser(user)
+  const team = await Team.findAll({
+    where: {
+      user_id: id,
+      project_id: project.id
+    }
+  })
+  team.update({
+    is_leader: true
+  })
   res.json(project)
 })
 
@@ -45,13 +54,45 @@ projectRouter.put('/:id', async (req, res) => {
 })
 
 //delete project
-projectRouter.delete('/:id', async(req, res)=> {
+projectRouter.delete('/:id', async (req, res) => {
   const id = req.params.id;
   const project = await Project.findByPk(id);
   await project.destroy
 })
 
+//user application to project
+projectRouter.put('/:projectid/:userId', async (req, res) => {
+  const projectId = req.params.projectId;
+  const userId = req.params.userId;
+  const project = await Project.findByPk(projectId);
+  const user = await User.findByPk(userId);
+  await project.setUser(user)
+  const team = await Team.findAll({
+    where: {
+      user_id: user.id,
+      project_id: project.id
+    }
+  })
+  res.json(team)
+})
 
+//
+projectRouter.put('/:projectid/:userId', async (req, res) => {
+  const projectId = req.params.projectId;
+  const userId = req.params.userId;
+  const project = await Project.findByPk(projectId);
+  const user = await User.findByPk(userId);
+  const team = await Team.findAll({
+    where: {
+      user_id: user.id,
+      project_id: project.id
+    }
+  })
+  team.update({
+    is_member: true
+  })
+  res.json(team)
+})
 
 
 module.exports = projectRouter
