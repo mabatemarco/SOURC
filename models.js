@@ -33,6 +33,8 @@ User.init({
 Project.init({
   name: Sequelize.STRING,
   description: Sequelize.TEXT,
+  github: Sequelize.TEXT,
+  slack: Sequelize.TEXT
 }, {
   sequelize,
   modelName: 'projects'

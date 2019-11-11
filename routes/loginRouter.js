@@ -18,15 +18,23 @@ const buildAuthResponse = (user) => {
 loginRouter.post('/register', async (req, res) => {
   try {
     const password_digest = await hashPassword(req.body.password);
-    const { username } = req.body;
-    const user = await User.create({
-      username,
-      password_digest,
-    });
+    const newUsername = req.body.username;
+    const users = User.findAll();
+    const found = users.filter(user => {
+      return user.username === newUsername
+    })
+    if (found.length > 0) {
+      const user = await User.create({
+        username: newUsername,
+        password_digest,
+      });
 
-    const respData = buildAuthResponse(user);
+      const respData = buildAuthResponse(user);
 
-    res.json(respData);
+      res.json(respData);
+    } else {
+      res.send('Username is already selected')
+    }
   } catch (e) {
     next(e);
   }

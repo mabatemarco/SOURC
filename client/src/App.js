@@ -19,8 +19,6 @@ export default class App extends React.Component {
     registerData: {
       username: '',
       password: '',
-      role: '',
-      about_me: ''
     }
   }
 
@@ -35,12 +33,32 @@ export default class App extends React.Component {
     }
   }
 
-  handleLogin = async (loginData) => {
+  handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      loginData: {
+        ...prevState.loginData,
+        [name]:value
+      }
+    }))
+  }
+
+  handleLoginSubmit = async (loginData) => {
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser })
   }
 
-  handleRegister = async (registerData) => {
+  handleRegisterChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      registerData: {
+        ...prevState.registerData,
+        [name]:value
+      }
+    }))
+  }
+
+  handleRegisterSubmit = async (registerData) => {
     const currentUser = await registerUser(registerData);
     this.setState({ currentUser })
   }
@@ -57,9 +75,23 @@ export default class App extends React.Component {
       <div className="app">
 
 
-        <Header />
+        <Header
+          currentUser={this.state.currentUser}
+          handleLoginSubmit={this.handleLoginSubmit}
+          handleLogout={this.handleLogout}
+        />
         <Animation />
-        {this.state.currentUser ? <LoggedIn /> : <Welcome />}
+        {this.state.currentUser ?
+          <LoggedIn /> :
+          <Welcome
+            handleLoginSubmit={this.handleLoginSubmit}
+          />}
+        <Route path='/register' render={() => {
+          <Register
+            handleRegisterSubmit={this.handleRegisterSubmit}
+          />
+        }}
+        />
         <Footer />
 
       </div>
