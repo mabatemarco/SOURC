@@ -8,9 +8,7 @@ const buildAuthResponse = (user) => {
     username: user.username,
     id: user.id,
   };
-
   const token = genToken(userData);
-
   return {
     user: userData,
     token,
@@ -21,7 +19,6 @@ loginRouter.post('/register', async (req, res) => {
   try {
     const password_digest = await hashPassword(req.body.password);
     const { username } = req.body;
-
     const user = await User.create({
       username,
       password_digest,
