@@ -21,6 +21,8 @@ User.init({
     type: Sequelize.STRING,
     allowNull: false,
   },
+  name: Sequelize.STRING,
+  email_address:Sequelize.STRING,
   role: Sequelize.STRING,
   about_me: Sequelize.TEXT,
   image_url: Sequelize.TEXT,

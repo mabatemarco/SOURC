@@ -15,32 +15,29 @@ const buildAuthResponse = (user) => {
   };
 };
 
-loginRouter.post('/register', async (req, res) => {
+loginRouter.post('/register', async (req, res, next) => {
   try {
     const password_digest = await hashPassword(req.body.password);
-    const newUsername = req.body.username;
-    const users = User.findAll();
-    const found = users.filter(user => {
-      return user.username === newUsername
-    })
-    if (found.length > 0) {
-      const user = await User.create({
-        username: newUsername,
-        password_digest,
-      });
+    const { username, name, email_address, role, about_me, image_url } = req.body
+    const user = await User.create({
+      username,
+      password_digest,
+      name,
+      email_address,
+      role,
+      about_me,
+      image_url
+    });
 
-      const respData = buildAuthResponse(user);
+    const respData = buildAuthResponse(user);
 
-      res.json(respData);
-    } else {
-      res.send('Username is already selected')
-    }
-  } catch (e) {
+    res.json(respData);
+  } catch (e) 
     next(e);
   }
 });
 
-loginRouter.post('/login', async (req, res) => {
+loginRouter.post('/login', async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {

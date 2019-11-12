@@ -17,10 +17,14 @@ export const verifyUser = async () => {
 
 //log in, takes username and password
 export const loginUser = async (loginData) => {
-  const resp = await api.post('/auth/login', loginData)
-  localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data.user
+  try {
+    const resp = await api.post('/auth/login', loginData)
+    localStorage.setItem('authToken', resp.data.token);
+    api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
+    return resp.data.user
+  } catch (e) {
+    return {error: 'invalid'}
+  }
 }
 
 //register new user, takes username and password

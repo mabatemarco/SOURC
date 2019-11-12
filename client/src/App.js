@@ -10,7 +10,7 @@ import Welcome from './components/Welcome'
 import Login from './components/Login'
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
 
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     currentUser: null,
     loginData: {
@@ -20,8 +20,14 @@ export default class App extends React.Component {
     registerData: {
       username: '',
       password: '',
+      name: '',
+      email_address: '',
+      role: '',
+      about_me: '',
+      image_url: ''
     },
-    showLogin: false
+    showLogin: false,
+    falseLogin: false
   }
 
   componentDidMount() {
@@ -51,9 +57,16 @@ export default class App extends React.Component {
     }))
   }
 
-  handleLoginSubmit = async (loginData) => {
-    const currentUser = await loginUser(loginData);
-    this.setState({ currentUser })
+  handleLoginSubmit = async (e) => {
+    e.preventDefault()
+    const currentUser = await loginUser(this.state.loginData);
+    if (currentUser.error) {
+      this.setState({
+        falseLogin: true
+      })
+    } else {
+      this.setState({ currentUser })
+    }
   }
 
   handleRegisterChange = (e) => {
@@ -66,8 +79,8 @@ export default class App extends React.Component {
     }))
   }
 
-  handleRegisterSubmit = async (registerData) => {
-    const currentUser = await registerUser(registerData);
+  handleRegisterSubmit = async () => {
+    const currentUser = await registerUser(this.state.registerData);
     this.setState({ currentUser })
   }
 
@@ -94,25 +107,33 @@ export default class App extends React.Component {
             handleLoginChange={this.handleLoginChange}
             handleLoginSubmit={this.handleLoginSubmit}
             handleShowLogin={this.handleShowLogin}
+            loginData={this.state.loginData}
+            falseLogin={this.state.falseLogin}
           />}
         {this.state.currentUser ?
-          <LoggedIn /> :
-          <Welcome
-            handleLoginSubmit={this.handleLoginSubmit}
-            handleShowLogin={this.handleShowLogin}
+          <Route exact path='/' render={() => (
+            <LoggedIn />
+          )} />
+          :
+          <Route exact path='/' render={() => (
+            <Welcome
+              handleLoginSubmit={this.handleLoginSubmit}
+              handleShowLogin={this.handleShowLogin}
+            />)}
           />}
-        <Route path='/register' render={() => (
-          <Register
-            handleRegisterSubmit={this.handleRegisterSubmit}
-            handleShowLogin={this.handleShowLogin}
-
+          <Route path='/register' render={() => (
+            <Register
+              handleRegisterSubmit={this.handleRegisterSubmit}
+              handleRegisterChange={this.handleRegisterChange}
+              registerData={this.state.registerData}
+            />
+          )}
           />
-        )}
-        />
-        <Footer />
+          <Footer />
 
       </div>
     );
   }
 }
 
+export default withRouter(App)
