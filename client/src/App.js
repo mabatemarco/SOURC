@@ -88,7 +88,7 @@ export default class App extends React.Component {
           handleLogout={this.handleLogout}
           handleShowLogin={this.handleShowLogin}
         />
-        {/* <Animation /> */}
+        <Animation />
         {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
