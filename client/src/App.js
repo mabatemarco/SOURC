@@ -69,6 +69,8 @@ class App extends React.Component {
         currentUser,
         showLogin: false
       })
+      this.props.history.push('/')
+
     }
   }
 
@@ -119,7 +121,6 @@ class App extends React.Component {
           <Route exact path='/' render={() => (
             <LoggedIn
               currentUser={this.state.currentUser}
-              handleLogout={this.handleLogout}
             />
           )} />
           :
