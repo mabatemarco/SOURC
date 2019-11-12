@@ -197,7 +197,7 @@ nav ul, li {
   font-size: 20px;
   margin: 0 25px;
   align-items: center;
-  
+}
 @keyframes pageFade {
   to {
     opacity: 0;
@@ -213,9 +213,11 @@ nav ul, li {
     rgba(0, 0, 0, 0.5)
   ), url('./images/group.jpg');
   background-size: cover;
-  height: 100vh;
+  height:100%;
   width: 100%;
+  padding-bottom: 50px;
 }
+
 
 
 #btn-log{
@@ -259,7 +261,7 @@ h1{
   
 }
 
-.title {
+.title-wel {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   padding: 120px;
