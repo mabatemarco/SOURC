@@ -101,6 +101,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        {/* <Animation /> */}
         <Header
           currentUser={this.state.currentUser}
           handleLoginSubmit={this.handleLoginSubmit}
@@ -108,7 +109,6 @@ class App extends React.Component {
           handleLogout={this.handleLogout}
           handleShowLogin={this.handleShowLogin}
         />
-        {/* <Animation /> */}
         {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
