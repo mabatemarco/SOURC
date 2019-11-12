@@ -10,12 +10,12 @@ export default function Login(props) {
         </div>
         <div className="pair">
           <label htmlFor='username'>Username</label>
-          <input name='username' type='text' value={props.loginData} onChange={props.handleLoginChange} />
+          <input name='username' type='text' value={props.loginData.usernamd} onChange={props.handleLoginChange} />
         </div>
         <div className="pair">
 
           <label htmlFor='password'>Password</label>
-          <input name='password' type='password' value={props.loginData} onChange={props.handleLoginChange} />
+          <input name='password' type='password' value={props.loginData.password} onChange={props.handleLoginChange} />
 
           <input id="login-submit" type='submit' value='Log in' />
         </div>

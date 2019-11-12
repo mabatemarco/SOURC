@@ -22,10 +22,16 @@ User.init({
     allowNull: false,
   },
   name: Sequelize.STRING,
-  email_address:Sequelize.STRING,
+  email_address: Sequelize.STRING,
   role: Sequelize.STRING,
-  about_me: Sequelize.TEXT,
-  image_url: Sequelize.TEXT,
+  about_me: {
+    type:Sequelize.TEXT,
+    allowNull: true
+  },
+  image_url: {
+    type:Sequelize.TEXT,
+    allowNull: true
+  }
 },
   {
     sequelize,

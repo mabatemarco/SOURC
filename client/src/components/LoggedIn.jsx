@@ -19,7 +19,7 @@ class LoggedIn extends React.Component {
   }
 
   getProjects = async () => {
-    const projects = await this.getProjects();
+    const projects = await getProjects();
     this.setState({
       projects
     })
@@ -27,9 +27,12 @@ class LoggedIn extends React.Component {
 
   render() {
     return (
-      <Route exact path="/" render={() => (
-        <Home />
-      )} />
+      <div class="loggedin">
+        <Route exact path="/" render={() => (
+          <Home />
+        )} />
+        <button onClick={this.props.handleLogout}>Log Out</button>
+      </div>
     )
   }
 }

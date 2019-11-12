@@ -65,7 +65,10 @@ class App extends React.Component {
         falseLogin: true
       })
     } else {
-      this.setState({ currentUser })
+      this.setState({
+        currentUser,
+        showLogin: false
+      })
     }
   }
 
@@ -79,9 +82,11 @@ class App extends React.Component {
     }))
   }
 
-  handleRegisterSubmit = async () => {
+  handleRegisterSubmit = async (e) => {
+    e.preventDefault()
     const currentUser = await registerUser(this.state.registerData);
     this.setState({ currentUser })
+    this.props.history.push('/')
   }
 
   handleLogout = () => {
@@ -112,7 +117,10 @@ class App extends React.Component {
           />}
         {this.state.currentUser ?
           <Route exact path='/' render={() => (
-            <LoggedIn />
+            <LoggedIn
+              currentUser={this.state.currentUser}
+              handleLogout={this.handleLogout}
+            />
           )} />
           :
           <Route exact path='/' render={() => (
@@ -121,15 +129,15 @@ class App extends React.Component {
               handleShowLogin={this.handleShowLogin}
             />)}
           />}
-          <Route path='/register' render={() => (
-            <Register
-              handleRegisterSubmit={this.handleRegisterSubmit}
-              handleRegisterChange={this.handleRegisterChange}
-              registerData={this.state.registerData}
-            />
-          )}
+        <Route path='/register' render={() => (
+          <Register
+            handleRegisterSubmit={this.handleRegisterSubmit}
+            handleRegisterChange={this.handleRegisterChange}
+            registerData={this.state.registerData}
           />
-          <Footer />
+        )}
+        />
+        <Footer />
 
       </div>
     );

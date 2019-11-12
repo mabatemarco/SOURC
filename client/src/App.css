@@ -373,3 +373,9 @@ footer a{
 footer p{
   margin:0;
 }
+
+.loggedin button{
+  margin: 10em;
+  height:100px;
+  width:100px
+}

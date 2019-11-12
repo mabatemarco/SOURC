@@ -33,6 +33,17 @@ export default function Register(props) {
         onChange={props.handleRegisterChange}
       />
       <br />
+
+      <label htmlFor="email_address">Email</label>
+      <input
+        type="text"
+        name="email_address"
+        id="email_address"
+        value={props.registerData.email_address}
+        onChange={props.handleRegisterChange}
+      />
+      <br />
+
       <label htmlFor="role">Role</label>
       <select
         type="text"

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const loginRouter = Router();
-const { User } = require('../models');
+const { User, sequelize } = require('../models');
 const { hashPassword, genToken, checkPassword, restrict } = require('../services/auth');
 
 const buildAuthResponse = (user) => {
@@ -30,12 +30,13 @@ loginRouter.post('/register', async (req, res, next) => {
     });
 
     const respData = buildAuthResponse(user);
-
     res.json(respData);
-  } catch (e) 
+
+  } catch (e) {
     next(e);
   }
-});
+}
+);
 
 loginRouter.post('/login', async (req, res, next) => {
   try {
