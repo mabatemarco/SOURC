@@ -17,17 +17,6 @@ export default function Welcome(props) {
         <h2>Find a S(/)urc!</h2>
       </div>
       <button onClick='' id='btn-sign'>Sign Up</button>
-
-      {/* <form onSubmit={handleSubmit} >
-        <label htmlFor='username'>Username</label>
-        <input name='username' type='text' value={loginData} onChange={handleChange} />
-
-        <label htmlFor='password'>Password</label>
-        <input name='password' type='password' value={loginData} onChange={handleChange} />
-
-        <input type='submit' value='Log in' />
-
-      </form> */}
     </div>
   )
 }
