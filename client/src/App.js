@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Link, Route } from 'react-router-dom';
-import LandingPage from './components/LandingPage'
 import Animation from './components/Animation'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -60,7 +59,8 @@ export default class App extends React.Component {
 
         <Header />
         <Animation />
-        {currentUser ? <LoggedIn /> : <Welcome />}
+        <Welcome />
+        {this.state.currentUser ? <LoggedIn /> : <Welcome />}
         <Footer />
 
       </div>
