@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { Link, Route, withRouter } from 'react-router-dom';
 import Animation from './components/Animation'
-import Header from './components/Header'
 import Footer from './components/Footer'
 import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'
@@ -120,7 +119,6 @@ class App extends React.Component {
           :
           <Route exact path='/' render={() => (
             <Welcome
-              handleLoginSubmit={this.handleLoginSubmit}
               handleShowLogin={this.handleShowLogin}
             />)}
           />}

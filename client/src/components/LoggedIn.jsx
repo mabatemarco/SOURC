@@ -40,6 +40,7 @@ class LoggedIn extends React.Component {
   render() {
     return (
       <div class="loggedin">
+        <Header />
         <Route exact path="/" render={() => (
           <Home
             projects={this.state.projects}
@@ -53,7 +54,7 @@ class LoggedIn extends React.Component {
           <CreateProject />
         )} />
         <Route path="/profile/:id" render={(props) => (
-          <Project project={this.state.users[props.match.params.id]}
+          <Profile profile={this.state.users[props.match.params.id]}
           />
         )} />
       </div >
