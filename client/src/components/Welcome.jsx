@@ -27,7 +27,6 @@ export default function Welcome(props) {
         <input type='submit' value='Log in' />
 
       </form> */}
-    
     </div>
   )
 }

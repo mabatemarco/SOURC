@@ -81,8 +81,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app">
-
-
         <Header
           currentUser={this.state.currentUser}
           handleLoginSubmit={this.handleLoginSubmit}

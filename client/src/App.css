@@ -15,6 +15,21 @@
 }
 
 .animation {
+  background-color: #000000;
+  width: 100%;
+  height: 100vh;
+  animation: pageFade 2s ease-out 5s forwards;
+  position: absolute;
+}
+
+#welcome {
+  background: rgb(136, 44, 44);
+  height: 100vh;
+}
+
+/* ====================== SOURC TITLE =============================== */
+
+.title {
   position:absolute;
   background-color: #000000;
   width: 100%;
@@ -28,11 +43,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
   animation: fill .5s ease-out forwards 3.5s;
+  z-index: 2;
 }
 
-.logoBackgrnd {
+.titleBackgrnd {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,43 +56,43 @@
   z-index: 1;
 }
 
- .logo path:nth-child(1) {
+.title path:nth-child(1) {
   stroke-dasharray: 502px;
   stroke-dashoffset: 502px;
   animation: lines 2s ease-out forwards;
 }
 
- .logo path:nth-child(2) {
+.title path:nth-child(2) {
   stroke-dasharray: 227.1px;
   stroke-dashoffset: 227.1px;
   animation: lines 2s ease-out forwards .3s;
 }
 
- .logo path:nth-child(3) {
+.title path:nth-child(3) {
   stroke-dasharray: 174px;
   stroke-dashoffset: 174px;
   animation: lines 2s ease-out forwards .6s;
 }
 
- .logo path:nth-child(4) {
+.title path:nth-child(4) {
   stroke-dasharray: 227.1px;
   stroke-dashoffset: 227.1px;
   animation: lines 2s ease-out forwards .9s;
 }
 
- .logo path:nth-child(5) {
+.title path:nth-child(5) {
   stroke-dasharray: 349px;
   stroke-dashoffset: 349px;
   animation: lines 2s ease-out forwards 1.2s;
 }
 
- .logo path:nth-child(6) {
+.title path:nth-child(6) {
   stroke-dasharray: 495.1px;
   stroke-dashoffset: 495.1px;
   animation: lines 2s ease-out forwards 1.5s;
 }
 
- .logo path:nth-child(7) {
+.title path:nth-child(7) {
   stroke-dasharray: 366.2px;
   stroke-dashoffset: 366.2px;
   animation: lines 2s ease-out forwards 1.7s;
@@ -99,6 +114,8 @@
   }
 }
 
+/* fills green ticks behind SOURC animation */
+
 @keyframes fillGreen {
   from {
     fill: transparent;
@@ -108,6 +125,79 @@
   }
 }
 
+/* Page fade animation */
+
+@keyframes pageFade {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ====================== SOURC TITLE =============================== */
+
+/*  */
+
+.brackets {
+  position: absolute;
+  top: 34%;
+  left: 43.5%;
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  animation: appear 2s ease-out forwards 4s;
+}
+
+/* .brackets path:nth-child(1) {
+  stroke-dasharray: 248px;
+  stroke-dashoffset: 248px;
+  animation: lines 2s ease-out forwards 4s;
+}
+
+.brackets path:nth-child(2) {
+  stroke-dasharray: 248px;
+  stroke-dashoffset: 248px;
+  animation: lines 2s ease-out forwards 4s;
+} */
+
+.inner-logo {
+  position: absolute;
+  top: 34.5%;
+  left: 43.5%;
+  transform: translate(-50%, -40%);
+  animation: appear 2s ease-out forwards 4s;
+  opacity: 0;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==================================== HEADER ====================================== */
+
+.nav-logo {
+  margin-left: 10px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  justify-content: space-between;
+}
+
+nav ul {
+  color: white;
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul, li {
+  font-size: 20px;
+  margin: 0 25px;
+  align-items: center;
+  
 @keyframes pageFade {
   to {
     opacity: 0;
