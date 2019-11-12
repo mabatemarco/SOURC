@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../images/logowte.png'
+import image from '../images/logotrsp.png'
 
 
 export default function Welcome(props) {
@@ -7,12 +7,12 @@ export default function Welcome(props) {
   return (
     <div className='welcome-pg'>
 <button id='btn-log'>Log in</button>
-    {/* <img id='logo-collab' src={image} width='110px' height='110px'   alt='sourc logo' /> */}
       <h1 className='title'>Collaborate with Software Developers and UX/I designers on projects.</h1>
+    <img id='logo-collab' src={image} width='110px' height='110px'   alt='sourc logo' />
       <div className='welcome-para'>
       <h2>Join teams.</h2>
       <h2>Build your network.</h2>
-        <h2>Socialize.</h2>
+        <h2>Update your portfolio.</h2>
         <h2>Find a S( )urc!</h2>
       </div>
       <button onClick='' id='btn-sign'>Sign Up</button>
