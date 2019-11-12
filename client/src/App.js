@@ -21,7 +21,7 @@ export default class App extends React.Component {
       username: '',
       password: '',
     },
-    renderLogin: false
+    showLogin: false
   }
 
   componentDidMount() {
@@ -42,6 +42,12 @@ export default class App extends React.Component {
         ...prevState.loginData,
         [name]: value
       }
+    }))
+  }
+
+  handleShowLogin = () => {
+    this.setState(prevState => ({
+      showLogin: !prevState.showLogin
     }))
   }
 
@@ -83,7 +89,7 @@ export default class App extends React.Component {
           handleLogout={this.handleLogout}
         />
         <Animation />
-        {this.state.renderLogin &&
+        {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
             handleLoginSubmit={this.handleLoginSubmit}
@@ -93,11 +99,11 @@ export default class App extends React.Component {
           <Welcome
             handleLoginSubmit={this.handleLoginSubmit}
           />}
-        <Route path='/register' render={() => {
+        <Route path='/register' render={() => (
           <Register
             handleRegisterSubmit={this.handleRegisterSubmit}
           />
-        }}
+        )}
         />
         <Footer />
 

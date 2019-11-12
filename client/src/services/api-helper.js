@@ -90,7 +90,7 @@ const apply = async (projectId, userId) => {
 }
 
 //approve member to project, takes project id and user id
-const apply = async (projectId, userId) => {
+const approve = async (projectId, userId) => {
   const response = await api.put(`projects/${projectId}/${userId}`);
   return response.data
 }
