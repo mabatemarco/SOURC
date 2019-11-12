@@ -47,14 +47,17 @@ class LoggedIn extends React.Component {
           />
         )} />
         <Route path="/projects/:id" render={(props) => (
-          <Project id={props.match.params.id}
+          <Project id={parseInt(props.match.params.id)}
           />
         )} />
         <Route path='projects/create' render={() => (
           <CreateProject />
         )} />
         <Route path="/profile/:id" render={(props) => (
-          <Profile profile={this.state.users[props.match.params.id]}
+          <Profile profile={this.state.users.find(user => {
+            return user.id === parseInt(props.match.params.id)
+          })}
+            currentUser={this.state.currentUser}
           />
         )} />
       </div >
