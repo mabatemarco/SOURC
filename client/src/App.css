@@ -211,25 +211,63 @@ nav ul, li {
   background-image:  linear-gradient(
     rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)
-  ), url('./images/group.jpg');
+  ), url('./images/collab-wel.jpg');
   background-size: cover;
-  height:100%;
+  height:100;
   width: 100%;
-  padding-bottom: 50px;
+
+}
+
+.welcome-para {
+  color: white;
+  text-align: center;
+  font-family: 'Hind Vadodara', sans-serif;
+}
+
+h1{
+    color: white;
+  
+}
+
+.title-wel {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 120px;
+}
+
+.cont, .cont-two, .cont-three {
+  display: flex;
+flex-flow: wrap;
+}
+
+.cont-two, .cont-three {
+  margin-top: 100px;
+}
+
+h2 {
+  font-size: 27px;
+  padding:30px;
+  text-align: left;
+  padding-top: 60px;
+  
+}
+
+.signreg-btn {
+  display: flex;
+  justify-content: flex-end;
+
 }
 
 
-
 #btn-log{
-  padding: 10px 40px;
-  border-radius: 10px;
-  font-size: 1.5em;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 2em;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
-  float: right;
-  text-align: center;
-  margin: 20px;
+  margin-right: 20px;
+  margin-left: 50px;
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
@@ -250,36 +288,14 @@ nav ul, li {
   text-shadow: 1px 1px 2px #427388; 
 }
 
-.welcome-para {
-  color: white;
-  text-align: center;
-  font-family: 'Hind Vadodara', sans-serif;
-}
 
-h1{
-    color: white;
-  
-}
-
-.title-wel {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  padding: 120px;
-  
-}
-
-h2 {
-  font-size: 32px;
-}
 
 #btn-sign {
   background-color: black;
   color: white;
-  padding: 30px;
+  padding: 10px;
   text-align:center;
   font-size: 2em;
-  margin:60px auto;
-  display: block;
   border-radius: 5px;  
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);

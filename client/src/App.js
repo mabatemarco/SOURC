@@ -81,13 +81,13 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header
+        {/* <Header
           currentUser={this.state.currentUser}
           handleLoginSubmit={this.handleLoginSubmit}
           handleShowLogin={this.handleShowLogin}
           handleLogout={this.handleLogout}
           handleShowLogin={this.handleShowLogin}
-        />
+        /> */}
         <Animation />
         {this.state.showLogin &&
           <Login
