@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'
 import Welcome from './components/Welcome'
+import Login from './components/Login'
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
 
 export default class App extends React.Component {
@@ -19,7 +20,8 @@ export default class App extends React.Component {
     registerData: {
       username: '',
       password: '',
-    }
+    },
+    renderLogin: false
   }
 
   componentDidMount() {
@@ -38,7 +40,7 @@ export default class App extends React.Component {
     this.setState(prevState => ({
       loginData: {
         ...prevState.loginData,
-        [name]:value
+        [name]: value
       }
     }))
   }
@@ -53,7 +55,7 @@ export default class App extends React.Component {
     this.setState(prevState => ({
       registerData: {
         ...prevState.registerData,
-        [name]:value
+        [name]: value
       }
     }))
   }
@@ -81,6 +83,11 @@ export default class App extends React.Component {
           handleLogout={this.handleLogout}
         />
         <Animation />
+        {this.state.renderLogin &&
+          <Login
+            handleLoginChange={this.handleLoginChange}
+            handleLoginSubmit={this.handleLoginSubmit}
+          />}
         {this.state.currentUser ?
           <LoggedIn /> :
           <Welcome
