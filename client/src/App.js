@@ -85,17 +85,20 @@ export default class App extends React.Component {
           currentUser={this.state.currentUser}
           handleLoginSubmit={this.handleLoginSubmit}
           handleLogout={this.handleLogout}
+          handleShowLogin={this.handleShowLogin}
         />
         <Animation />
         {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
             handleLoginSubmit={this.handleLoginSubmit}
+            handleShowLogin={this.handleShowLogin}
           />}
         {this.state.currentUser ?
           <LoggedIn /> :
           <Welcome
             handleLoginSubmit={this.handleLoginSubmit}
+            handleShowLogin={this.handleShowLogin}
           />}
         <Route path='/register' render={() => (
           <Register
