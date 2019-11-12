@@ -20,9 +20,9 @@ app.use('/auth', loginRouter);
 app.use('/users', userRouter);
 app.use('/projects', projectRouter);
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send(err.message);
+app.use((e, req, res, next) => {
+  console.error(e.stack);
+  res.status(500).send(e.message);
 });
 
 app.listen(PORT, () => {

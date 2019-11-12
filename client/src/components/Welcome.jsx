@@ -40,6 +40,7 @@ export default function Welcome(props) {
       </div>
 
       <h1 className='title-wel'>Collaborate with Software Developers and UX/I designers on projects.</h1>
+
       <div className='welcome-para'>
         <div className='cont'>
           <img className='blue-img' src={buildimg} width='400px' alt='blueprint' />
@@ -55,7 +56,9 @@ export default function Welcome(props) {
           </div>
         </div>
 
+
       </div>
+
     </div>
   )
 }
