@@ -47,8 +47,8 @@ class LoggedIn extends React.Component {
   handleProjectChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
-      profileData: {
-        ...prevState.profileData,
+      projectData: {
+        ...prevState.projectData,
         [name]: value
       }
     }))
@@ -79,9 +79,12 @@ class LoggedIn extends React.Component {
             currentUser={this.state.currentUser}
           />
         }} />
-        <Route path='projects/create' render={() => (
+        <Route path='/projects/create' render={() => (
           <CreateProject
-            projectData={this.state.projectData} />
+            projectData={this.state.projectData}
+            handleProjectChange={this.handleProjectChange}
+            handleProjectSubmit={this.handleProjectSubmit}
+          />
         )} />
         <Route path="/profiles/:id" render={(props) => {
           const id = parseInt(props.match.params.id)

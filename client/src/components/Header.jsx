@@ -36,25 +36,25 @@ export default function Header(props) {
         <Link>New Projects</Link>
 
 
-        <div className="hamMenu" >
+      </div>
+      <div className="hamMenu" >
 
-          <input type="checkbox" />
+        <input type="checkbox" />
 
-          <span></span>
-          <span></span>
-          <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-          <ul className="menu" >
-            <Link>
-              <li>Profile</li>
-            </Link>
-            <Link>
-              <li>About</li>
-            </Link>
-            <li onClick={props.handleLogout}>Sign Out</li>
-          </ul>
+        <ul className="menu" >
+          <Link>
+            <li>Profile</li>
+          </Link>
+          <Link>
+            <li>About</li>
+          </Link>
+          <li onClick={props.handleLogout}>Sign Out</li>
+        </ul>
 
-        </div>
       </div>
     </nav>
   )
