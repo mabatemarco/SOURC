@@ -46,15 +46,14 @@ export default function Header(props) {
               <li>Profile</li>
 
             </Link>}
-          <Link>New Projects</Link>
-
+            <Link>New Projects</Link>
             <Link>
               <li>About</li>
             </Link>
             <li onClick={props.handleLogout}>Sign Out</li>
           </ul>
 
-        </div>
+      </div>
 
     </nav>
   )
