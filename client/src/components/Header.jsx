@@ -34,6 +34,7 @@ export default function Header(props) {
       <div className="middleLinks" >
         <Link to='/' >Home</Link>
         <Link>New Projects</Link>
+        <button onClick={props.handleLogout}>Log out</button>
       </div>
 
       <div className="hamMenu" >

@@ -4,6 +4,7 @@ import GroupPic from '../images/group.jpg';
 export default function Home(props) {
 
   return (
+
     <div className="home" >
 
       <div className="homeContent">
@@ -22,5 +23,6 @@ export default function Home(props) {
       </div>
 
     </div>
+
   )
 }
