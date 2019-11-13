@@ -101,7 +101,7 @@ class App extends React.Component {
     return (
       <div className="app">
 
-        <Animation /> 
+        {/* <Animation />  */}
         {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
@@ -111,7 +111,7 @@ class App extends React.Component {
             falseLogin={this.state.falseLogin}
           />}
         {this.state.currentUser ?
-          <Route exact path='/' render={() => (
+          <Route path='/' render={() => (
             <LoggedIn
               currentUser={this.state.currentUser}
             />
