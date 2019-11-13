@@ -47,25 +47,25 @@ export default class Project extends React.Component {
     return (
       <>
         {
-          this.state.currentProject &&(
-          <div className="project">
-            <div className="left">
-              {this.state.currentProject.img_url ? <img src={this.state.currentProject.image_url} alt="current project" /> :
-                <img src={GroupPic} alt="" />}
-            </div>
-            <div className="right">
-              <h2>{this.state.currentProject.name}</h2>
+          this.state.currentProject && (
+            <div className="project">
+              <div className="left">
+                {this.state.currentProject.image_url ? <img src={this.state.currentProject.image_url} alt="current project" /> :
+                  <img src={GroupPic} alt="" />}
+              </div>
+              <div className="right">
+                <h2>{this.state.currentProject.name}</h2>
                 <p>{this.state.currentProject.description}</p>
                 {this.state.member ?
                   <>
-                  <p className="git">Github: {this.state.currentProject.github}</p>
+                    <p className="git">Github: {this.state.currentProject.github}</p>
                     <p className="slack"> Slack: {this.state.currentProject.slack}</p>
                   </>
                   :
                   <button>Apply!</button>
                 }
+              </div>
             </div>
-          </div>
           )}
       </>
     )

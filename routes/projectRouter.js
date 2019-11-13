@@ -12,7 +12,7 @@ projectRouter.get('/', async (req, res) => {
 
 //get specific project with all members
 projectRouter.get('/:id', async (req, res) => {
-  const id = req.params.id
+  const id = parseInt(req.params.id)
   const projects = await Project.findByPk(id, {
     include: [{
       model: User,
@@ -31,16 +31,7 @@ projectRouter.post('/create/:creatorId', async (req, res) => {
   const id = req.params.creatorId;
   const user = await User.findByPk(id);
   const project = await Project.create(data);
-  await project.setUser(user)
-  const team = await Team.findAll({
-    where: {
-      user_id: id,
-      project_id: project.id
-    }
-  })
-  team.update({
-    is_leader: true
-  })
+  await project.addUser(user, { through: { isleader: true, is_member: true } })
   res.json(project)
 })
 

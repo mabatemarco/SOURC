@@ -45,8 +45,8 @@ export default function Header(props) {
             <Link to={`profiles/${props.currentUser.id}`} >
               <li>Profile</li>
 
-          </Link>
-          <Link>New Projects</Link>
+            </Link>}
+            <Link>New Projects</Link>
 
             <Link>
               <li>About</li>
@@ -54,7 +54,7 @@ export default function Header(props) {
             <li onClick={props.handleLogout}>Sign Out</li>
           </ul>
 
-        </div>
+      </div>
 
     </nav>
   )
