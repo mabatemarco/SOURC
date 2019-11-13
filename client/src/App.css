@@ -265,19 +265,97 @@ nav {
 /* ---------------------------Welcome Page Styling---------------------- */
 
 .welcome-pg {
-  background-image:  linear-gradient(
+  background:
+  linear-gradient(
     rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)
   ), url('./images/collab-wel.jpg');
-  height:100;
+  height:1000px;
   width: 100%;
+  background-size:cover;
+  padding-bottom: 150px;
+}
 
+#navLogo-wel {
+  position: absolute;
+  top: 0;
 }
 
 .welcome-para {
   color: white;
   text-align: center;
   font-family: 'Hind Vadodara', sans-serif;
+ 
+}
+
+.contain{
+ display: flex;
+ flex-direction: row-reverse;
+ justify-content: space-around;
+ margin-top: 50px;
+}
+
+.cont, .cont-two, .cont-tree{
+  position: relative;
+
+}
+
+.card-img{
+  height: auto;
+  display:block;
+  opacity: 0.9;
+}
+
+.card-imgtwo{
+  height: auto;
+  display:block;
+  opacity: 0.8;
+
+}
+
+.card-imgtree{
+  height: auto;
+  display:block;
+  opacity: 0.7;
+}
+
+.overlay-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  height: 0;
+  transition: .5s ease;
+  
+}
+
+.cont:hover .overlay-img {
+  height: 50%;
+  padding:20px;
+}
+
+.cont-two:hover .overlay-img {
+  height: 50%;
+  padding:20px;
+
+}
+
+.cont-tree:hover .overlay-img {
+  height: 50%;
+  padding:20px;
+
+}
+
+.det-txt, .det-txttwo, .det-txttree {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 h1{
@@ -291,29 +369,19 @@ h1{
   padding: 120px;
 }
 
-.cont, .cont-two, .cont-three {
-  display: flex;
-flex-flow: wrap;
-}
-
-.cont-two, .cont-three {
-  margin-top: 100px;
-}
 
 h2 {
-  font-size: 27px;
-  padding:30px;
-  text-align: left;
-  padding-top: 60px;
-  
+  font-size: 25px;
+  padding:20px;
+  text-align: center;  
 }
 
 .signreg-btn {
   display: flex;
   justify-content: flex-end;
-
+  padding-top: 25px;
+  opacity: 0.85;
 }
-
 
 #btn-log{
   padding: 10px;
@@ -322,8 +390,7 @@ h2 {
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
-  margin-right: 20px;
-  margin-left: 50px;
+   margin: 0 50px; 
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
@@ -360,6 +427,7 @@ h2 {
   outline-offset: 0px;
   text-shadow: none;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
   
 }
 
@@ -381,9 +449,12 @@ h2 {
   top: 20%;
   height:400px;
   border: 1px solid black;
-  background-color: white;
+  background-color: black;
   text-align:center;
-  border-radius: 5px;;
+  border-radius: 5px;
+  z-index: 2;
+  color: white;
+  opacity: 0.89;
 }
 
 #login-modal .top{
@@ -425,6 +496,55 @@ h2 {
   margin-top: 3em;
 }
 
+#login-submit:hover {
+  background-color: #bada55;
+}
+
+
+
+/* ===============================Register Modal========================= */
+
+.register-pg {
+  background-image: url('./images/regis-desk.jpg');
+  background-size:cover ;
+  width: 100%;
+  height: 100vh;
+}
+
+.title-reg {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 30px;
+  color: black
+}
+
+.title-reg span {
+  color: #bada55;
+}
+
+#register{
+  width:50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #A19DAD;
+  padding: 40px;
+  opacity: 0.9;
+  
+}
+
+
+
+ #register input[type=text], input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #bada55;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
 /* ================================Footer================================ */
 footer{
   background-color:black;
@@ -433,6 +553,8 @@ footer{
   height:60px;
   line-height: 60px;
   margin:0;
+  opacity: 0.85;
+  font-size: 25px;
 }
 
 footer a{
@@ -451,3 +573,19 @@ footer p{
   height:100px;
   width:100px
 }
+
+footer {
+ position: absolute;
+ width: 100%;
+ padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+

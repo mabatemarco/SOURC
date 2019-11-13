@@ -57,9 +57,11 @@ class LoggedIn extends React.Component {
         )} />
         <Route path="/profiles/:id" render={(props) => {
           const id = parseInt(props.match.params.id)
+
           const currentProfile = this.state.users.find(user => {
             return user.id === id
           })
+
           return <Profile
             currentProfile={currentProfile} />
         }} />
