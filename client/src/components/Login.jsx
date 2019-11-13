@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Login(props) {
   return (
-    <div>
+    <div className='log-overlay'>
       <form id="login-modal" onSubmit={props.handleLoginSubmit} >
         <div className="top">
           <span onClick={props.handleShowLogin}>X</span>

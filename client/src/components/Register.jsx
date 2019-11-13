@@ -98,8 +98,7 @@ export default function Register(props) {
 
 
         <label htmlFor="about_me">About Me</label>
-        <input
-          type="text"
+        <textarea
           name="about_me"
           id="about_me"
           value={props.about_me}
