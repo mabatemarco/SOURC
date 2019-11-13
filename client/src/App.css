@@ -782,3 +782,9 @@ textarea{
   border: 1.4px solid #bada55;
   height:  50px;
 }
+
+/* =================================Profile Page======================= */
+
+.pro-title {
+  color: black;
+}

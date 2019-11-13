@@ -6,7 +6,7 @@ export default function Profile(props) {
   return (
     <div className='pro-pg'>
     
-    <h1>Profile</h1>
+    <h1 className='pro-title'>Profile</h1>
     
     
     </div>

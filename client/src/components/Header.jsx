@@ -47,7 +47,6 @@ export default function Header(props) {
 
             </Link>}
             <Link>New Projects</Link>
-
             <Link>
               <li>About</li>
             </Link>
