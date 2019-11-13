@@ -68,7 +68,7 @@ export const deleteProject = async (id) => {
 //get all users
 export const getUsers = async () => {
   const response = await api.get('/users');
-  return response.loginData
+  return response.data
 }
 
 //get one user and all associated projects, takes userid
