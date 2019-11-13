@@ -51,9 +51,9 @@ class App extends React.Component {
   }
 
   handleShowLogin = () => {
-    this.setState(prevState => ({
-      showLogin: !prevState.showLogin
-    }))
+      this.setState(prevState => ({
+        showLogin: !prevState.showLogin
+      }))
   }
 
   handleLoginSubmit = async (e) => {
