@@ -582,6 +582,29 @@ h2 {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+#register textarea {
+  width: 100%;
+  border-radius: 4px;
+  border: 1.4px solid #bada55;
+  padding: 12px;
+}
+
+ #register input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  float: right;
+}
+
+#register input[type=submit]:hover {
+  background-color: black;
+
+}
 /* ================================ HOME ================================ */
 
 .home {
@@ -619,6 +642,11 @@ h2 {
   5px 5px 10px rgba(0, 0, 0, .5);
 }
 
+
+/* ================================ HOME ================================ */
+
+
+/*===========================Register=======================*/
 #register textarea {
   width: 100%;
   border-radius: 4px;
@@ -643,7 +671,7 @@ h2 {
 
 
 
-/* ================================ HOME ================================ */
+
 /* ================================Footer================================ */
 footer{
   width: 100%;

@@ -67,7 +67,9 @@ class LoggedIn extends React.Component {
     return (
       <div className="loggedin">
         <Header
-          handleLogout={this.props.handleLogout} />
+          handleLogout={this.props.handleLogout}
+          currentUser={this.state.currentUser}
+        />
         <Route exact path="/" render={() => (
           <Home
             projects={this.state.projects}
