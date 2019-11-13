@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Header(props) {
+
   return (
     <nav>
       <Link to='/' >
@@ -44,9 +45,10 @@ export default function Header(props) {
           {props.currentUser &&
             <Link to={`profiles/${props.currentUser.id}`} >
               <li>Profile</li>
-
             </Link>}
-            <Link>New Projects</Link>
+            <Link to='/projects/create'>
+              <li>New Projects</li>
+            </Link>
             <Link>
               <li>About</li>
             </Link>
