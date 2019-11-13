@@ -45,7 +45,7 @@ export default function Header(props) {
             <Link to={`profiles/${props.currentUser.id}`} >
               <li>Profile</li>
 
-          </Link>
+            </Link>}
           <Link>New Projects</Link>
 
             <Link>
