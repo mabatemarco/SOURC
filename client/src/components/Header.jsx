@@ -32,14 +32,6 @@ export default function Header(props) {
         </svg>
       </Link>
 
-      <div className="middleLinks" >
-        <Link to='/' >Home</Link>
-
-        <Link to='/projects/create'>New Projects</Link>
-
-
-
-      </div>
       <div className="hamMenu" >
 
         <input type="checkbox" />
@@ -52,7 +44,10 @@ export default function Header(props) {
           {props.currentUser &&
             <Link to={`profiles/${props.currentUser.id}`} >
               <li>Profile</li>
-            </Link>}
+
+          </Link>
+          <Link>New Projects</Link>
+
             <Link>
               <li>About</li>
             </Link>
