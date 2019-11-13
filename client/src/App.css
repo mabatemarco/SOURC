@@ -632,6 +632,7 @@ h2 {
 
 .cards {
   background-color: white;
+  height:525px;
   border-radius: 3px;
   box-shadow: 
   5px 10px 15px rgba(0, 0, 0, .5),

@@ -40,11 +40,14 @@ export default function Header(props) {
         <span></span>
         <span></span>
 
-          <ul className="menu" >
-            <Link to='' >
+        <ul className="menu" >
+          {props.currentUser &&
+            <Link to={`profiles/${props.currentUser.id}`} >
               <li>Profile</li>
+
           </Link>
           <Link>New Projects</Link>
+
             <Link>
               <li>About</li>
             </Link>
