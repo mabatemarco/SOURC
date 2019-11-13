@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers } from '../services/api-helper.js'
-import Profile from './Profile'
-import Project from './Project'
-import Home from './Home'
-import Header from './Header'
-import CreateProject from './CreateProject'
+import { getProjects, getUsers } from '../services/api-helper.js';
+import Profile from './Profile';
+import Project from './Project';
+import Home from './Home';
+import Header from './Header';
+import CreateProject from './CreateProject';
 
 class LoggedIn extends React.Component {
   state = {
@@ -49,6 +49,7 @@ class LoggedIn extends React.Component {
         <Route path="/projects/:id" render={(props) => {
           return <Project
             projectId={props.match.params.id}
+            currentUser={this.state.currentUser}
           />
         }} />
         <Route path='projects/create' render={() => (
