@@ -183,10 +183,6 @@ nav {
   user-select: none;
 }
 
-.middleLinks {
-  justify-content: center;
-  font-family: var(--mainFont);
-}
 
 .hamMenu input {
   display: block;
@@ -640,6 +636,7 @@ h2 {
   box-shadow: 
   5px 10px 15px rgba(0, 0, 0, .5),
   5px 5px 10px rgba(0, 0, 0, .5);
+  padding-bottom: 100px;
 }
 
 
