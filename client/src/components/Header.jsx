@@ -33,7 +33,7 @@ export default function Header(props) {
       </Link>
       <div className="middleLinks" >
         <Link to='/' >Home</Link>
-        <Link>New Projects</Link>
+        <Link to='/projects/create'>New Projects</Link>
 
 
       </div>
