@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers } from '../services/api-helper.js';
+import { getProjects, getUsers, createProject } from '../services/api-helper.js';
 import Profile from './Profile';
 import Project from './Project';
 import Home from './Home';
@@ -11,7 +11,14 @@ class LoggedIn extends React.Component {
   state = {
     currentUser: null,
     projects: null,
-    users: null
+    users: null,
+    projectData: {
+      name: '',
+      description: '',
+      image_url: '',
+      github: '',
+      slack: ''
+    }
   }
 
   componentDidMount = () => {
@@ -37,10 +44,37 @@ class LoggedIn extends React.Component {
     })
   }
 
+  handleLogout = () => {
+    this.setState({
+      currentUser: null
+    })
+    localStorage.removeItem('authToken');
+  }
+
+  handleProjectChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      profileData: {
+        ...prevState.profileData,
+        [name]: value
+      }
+    }))
+  }
+
+  handleProjectSubmit = async (e) => {
+    e.preventDefault()
+    const newProject = await createProject(this.state.currentUser.id, this.state.projectData);
+    this.setState(prevState => ({
+      projects: [...prevState.projects, newProject]
+    }))
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className="loggedin">
-        <Header />
+        <Header
+          handleLogout={this.handleLogout} />
         <Route exact path="/" render={() => (
           <Home
             projects={this.state.projects}
@@ -53,7 +87,8 @@ class LoggedIn extends React.Component {
           />
         }} />
         <Route path='projects/create' render={() => (
-          <CreateProject />
+          <CreateProject
+            projectData={this.state.projectData} />
         )} />
         <Route path="/profiles/:id" render={(props) => {
           const id = parseInt(props.match.params.id)

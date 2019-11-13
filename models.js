@@ -41,6 +41,10 @@ User.init({
 Project.init({
   name: Sequelize.STRING,
   description: Sequelize.TEXT,
+  image_url: {
+    type:Sequelize.TEXT,
+    allowNull: true
+  },
   github: Sequelize.TEXT,
   slack: Sequelize.TEXT
 }, {

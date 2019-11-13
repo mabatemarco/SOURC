@@ -90,13 +90,6 @@ class App extends React.Component {
     this.props.history.push('/')
   }
 
-  handleLogout = () => {
-    this.setState({
-      currentUser: null
-    })
-    localStorage.removeItem('authToken')
-  }
-
   render() {
     return (
       <div className="app">

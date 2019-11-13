@@ -33,8 +33,9 @@ export default function Header(props) {
       <div className="middleLinks" >
         <Link to='/' >Home</Link>
         <Link>New Projects</Link>
+        <button onClick={props.handleLogout}>Log out</button>
       </div>
-      
+
       <div className="hamMenu" >
 
         <input type="checkbox" />
@@ -51,9 +52,9 @@ export default function Header(props) {
           <Link>
             <li>About</li>
           </Link>
-            <li onClick={props.handleLogout}>Sign Out</li>
+          <li onClick={props.handleLogout}>Sign Out</li>
         </ul>
-        
+
       </div>
     </nav>
   )
