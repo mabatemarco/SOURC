@@ -51,9 +51,9 @@ class App extends React.Component {
   }
 
   handleShowLogin = () => {
-      this.setState(prevState => ({
-        showLogin: !prevState.showLogin
-      }))
+    this.setState(prevState => ({
+      showLogin: !prevState.showLogin
+    }))
   }
 
   handleLoginSubmit = async (e) => {
@@ -90,6 +90,14 @@ class App extends React.Component {
     this.props.history.push('/')
   }
 
+  handleLogout = () => {
+    this.setState({
+      currentUser: null
+    })
+    localStorage.removeItem('authToken')
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className="app">
@@ -107,6 +115,7 @@ class App extends React.Component {
           <Route path='/' render={() => (
             <LoggedIn
               currentUser={this.state.currentUser}
+              handleLogout = {this.handleLogout}
             />
           )} />
           :

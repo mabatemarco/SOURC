@@ -34,27 +34,27 @@ export default function Header(props) {
       <div className="middleLinks" >
         <Link to='/' >Home</Link>
         <Link>New Projects</Link>
-        <button onClick={props.handleLogout}>Log out</button>
-      </div>
 
-      <div className="hamMenu" >
 
-        <input type="checkbox" />
+        <div className="hamMenu" >
 
-        <span></span>
-        <span></span>
-        <span></span>
+          <input type="checkbox" />
 
-        <ul className="menu" >
-          <Link>
-            <li>Profile</li>
-          </Link>
-          <Link>
-            <li>About</li>
-          </Link>
-          <li onClick={props.handleLogout}>Sign Out</li>
-        </ul>
+          <span></span>
+          <span></span>
+          <span></span>
 
+          <ul className="menu" >
+            <Link>
+              <li>Profile</li>
+            </Link>
+            <Link>
+              <li>About</li>
+            </Link>
+            <li onClick={props.handleLogout}>Sign Out</li>
+          </ul>
+
+        </div>
       </div>
     </nav>
   )

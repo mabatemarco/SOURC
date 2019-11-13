@@ -44,13 +44,6 @@ class LoggedIn extends React.Component {
     })
   }
 
-  handleLogout = () => {
-    this.setState({
-      currentUser: null
-    })
-    localStorage.removeItem('authToken');
-  }
-
   handleProjectChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -74,7 +67,7 @@ class LoggedIn extends React.Component {
     return (
       <div className="loggedin">
         <Header
-          handleLogout={this.handleLogout} />
+          handleLogout={this.props.handleLogout} />
         <Route exact path="/" render={() => (
           <Home
             projects={this.state.projects}
@@ -105,4 +98,4 @@ class LoggedIn extends React.Component {
   }
 }
 
-export default LoggedIn
+export default withRouter(LoggedIn)
