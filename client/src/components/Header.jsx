@@ -34,17 +34,19 @@ export default function Header(props) {
 
       <div className="middleLinks" >
         <Link to='/' >Home</Link>
-        <Link>New Projects</Link>
+
+        <Link to='/projects/create'>New Projects</Link>
+
+
+
       </div>
+      <div className="hamMenu" >
 
+        <input type="checkbox" />
 
-        <div className="hamMenu" >
-
-          <input type="checkbox" />
-
-          <span></span>
-          <span></span>
-          <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
           <ul className="menu" >
             <Link to='' >
@@ -57,6 +59,7 @@ export default function Header(props) {
           </ul>
 
         </div>
+
     </nav>
   )
 }
