@@ -6,7 +6,11 @@ const { restrict } = require('../services/auth')
 
 //get all projects
 projectRouter.get('/', async (req, res) => {
-  const projects = await Project.findAll();
+  const projects = await Project.findAll({
+    order: [
+      ['updated_at', 'DESC'],
+    ],
+  });
   res.json(projects)
 })
 
@@ -67,16 +71,8 @@ projectRouter.put('/:projectid/approve/:userId', async (req, res) => {
   const userId = req.params.userId;
   const project = await Project.findByPk(projectId);
   const user = await User.findByPk(userId);
-  const team = await Team.findAll({
-    where: {
-      user_id: user.id,
-      project_id: project.id
-    }
-  })
-  team.update({
-    is_member: true
-  })
-  res.json(team)
+  await project.addUser(user, { through: { is_member: true, is_leader: false } })
+  res.json(project)
 })
 
 

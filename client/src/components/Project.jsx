@@ -1,5 +1,6 @@
 import React from 'react';
-import { getProject, apply } from '../services/api-helper.js';
+import { getProject, apply, approve } from '../services/api-helper.js';
+import { Link } from 'react-router-dom'
 import GroupPic from '../images/group.jpg'
 
 
@@ -17,8 +18,8 @@ export default class Project extends React.Component {
 
   componentdidMount = async () => {
 
-      await this.currentProject();
-  
+    await this.currentProject();
+
     if (this.props.currentUser) {
       this.teamCheck();
       this.getApplicants();
@@ -107,6 +108,17 @@ export default class Project extends React.Component {
     }))
   }
 
+  approve = async (id) => {
+    const currentProject = await apply(this.state.currentProject.id, id)
+    await this.currentProject()
+    if (this.props.currentUser) {
+      this.teamCheck();
+      this.getApplicants();
+      this.getMembers();
+      this.getLeader()
+    }
+  }
+
   render() {
 
     return (
@@ -119,17 +131,45 @@ export default class Project extends React.Component {
                   <img src={GroupPic} alt="" />}
               </div>
               <div className="right">
-                <div className="profile-text">
+                <div className="project-text">
                   <h2>{this.state.currentProject.name}</h2>
-                  <h3>Created By {this.state.leader && this.state.leader.name}</h3>
-                  <p>{this.state.currentProject.description}</p>
+                  <h3>Created By
+                    {this.state.leader &&
+                      <Link to={`/profiles/${this.state.leader.id}`}>
+                        {' ' + this.state.leader.name}
+                      </Link>}
+                  </h3>
+                  <p className="project-description">{this.state.currentProject.description}</p>
                   {this.state.isMember &&
                     <div className="project-links">
-                      <p className="git">Github: {this.state.currentProject.github}</p>
-                      <p className="slack"> Slack: {this.state.currentProject.slack}</p>
+                      <p className="git"><strong>Github: </strong>{this.state.currentProject.github}</p>
+                      <p className="slack"> <strong>Slack:</strong> {this.state.currentProject.slack}</p>
                     </div>
                   }
                   {this.state.isApplicant === false && <button onClick={this.apply}>Apply!</button>}
+                </div>
+                <div className="project-members">
+                  <div className="members">
+                    <h3>Members</h3>
+                    {this.state.members.map(member => (
+                      <Link to={`/profiles/${member.id}`}>
+                        {member.name}
+                      </Link>
+                    ))}
+                  </div>
+                  {this.state.isLeader &&
+                    <div className="applicants">
+                      <h3>Applicants</h3>
+                      {this.state.applicants.map(applicant => (
+                        <>
+                          <Link to={`/profiles/${applicant.id}`}>
+                            {applicant.name}
+                          </Link>
+                          <button onclick={() => { approve(applicant.id) }}>Add to team</button>
+                        </>
+                      ))}
+                    </div>
+                  }
                 </div>
               </div>
             </div>
