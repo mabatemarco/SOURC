@@ -16,15 +16,17 @@
   padding: 0;
 }
 
+
+/* ====================== SOURC TITLE =============================== */
+
 .animation {
   background-color: #000000;
   width: 100%;
   height: 120vh;
   animation: pageFade 3s ease-out forwards 5s;
   position: absolute;
+  z-index: 5;
 }
-
-/* ====================== SOURC TITLE =============================== */
 
 .title {
   position: absolute;
@@ -34,7 +36,7 @@
   animation: 
   fill .5s ease-out forwards 3.5s,
   scale 2.5s ease-out forwards 5s;
-  z-index: 2;
+  z-index: 5;
 }
 
 .titleBackgrnd {
@@ -165,8 +167,7 @@
 }
 
 nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   width: 100%;
   height: 100px;
   background-color: black;
@@ -209,8 +210,8 @@ nav {
   z-index: 1;
   transform-origin: 4px 0px;
   transition: 
-  transform 0.5s ease-in-out,
-  background 0.5s ease-in-out,
+  transform 0.4s ease-in-out,
+  background 0.4s ease-in-out,
   opacity 0.55s ease;
 }
 
@@ -224,6 +225,7 @@ nav {
   opacity: 1;
   transform: rotate(45deg) translate(-4px, -2px);
   background: black;
+  z-index: 2;
 }
 
 .hamMenu input:checked ~ span:nth-last-child(3){
@@ -250,7 +252,8 @@ nav {
   border-radius: 10px;
   border: solid 2px black;
   transform: scale(0);
-  transition: 0.5s ease-in-out;
+  transition: 0.4s ease-in-out;
+  z-index: 1;
 }
 
 .menu li {
@@ -279,8 +282,6 @@ nav {
   transform: scale(1);
 }
 
-
-
 /* ========================================== HAMBURGER MENU ======================================== */
 
 /* ============================================== HEADER ============================================ */
@@ -295,12 +296,25 @@ nav {
   ), url('./images/collab-wel.jpg');
   height:950px;
   width: 100%;
-  background-size:cover;
+  background-size: cover;
+  opacity: 0;
+  animation: fadeIn 3s ease-out forwards 6s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 #navLogo-wel {
   position: absolute;
   top: 0;
+  margin-left: 50px;
+}
+
+#navLogo-reg{
+  margin-left: 20px;
 }
 
 .welcome-para {
@@ -412,7 +426,7 @@ h2 {
 }
 
 #btn-log{
-  padding: 10px;
+  padding: 8px 25px;
   border-radius: 5px;
   font-size: 2em;
   color: white;
@@ -575,7 +589,6 @@ h2 {
   width: 100%;
   border-radius: 4px;
   border: 1.4px solid #bada55;
-  padding: 12px;
 }
 
  #register input[type=submit] {
@@ -596,7 +609,7 @@ h2 {
 /* ================================ HOME ================================ */
 
 .home {
-  background: url('')
+  background: rgba(41, 118, 206, 0.781);
 }
 
 .homeContent {
@@ -605,12 +618,14 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 25px;
   text-align: center;
+  perspective: 1000px;
 }
 
 .homeContent img {
   box-sizing: border-box;
   width: 100%;
   height: auto;
+  border-radius: 5px 5px 0 0;
 }
 
 .homeContent h2 {
@@ -623,13 +638,20 @@ h2 {
 }
 
 .cards {
+  width: 100%;
   background-color: white;
   height:525px;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 
   5px 10px 15px rgba(0, 0, 0, .5),
   5px 5px 10px rgba(0, 0, 0, .5);
-  padding-bottom: 50px;
+  padding-bottom: 30px;
+  transform: scale(.9);
+  transition: transform ease-in-out .3s;
+}
+
+.cards:hover {
+  transform: scale(1);
 }
 
 
@@ -659,56 +681,121 @@ h2 {
 
 }
 
+/* ============================================ ABOUT ========================================== */
 
+.container {
+  background: #333;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 25px;
+}
 
+.cardWrap {
+  width: 400px;
+  height: 500px;
+  position: relative;
+}
 
-/* ================================Footer================================ */
-footer{
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+  5px 10px 15px rgba(0, 0, 0, .5),
+  5px 5px 10px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.cardImg img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  background-color:black;
-  color:white;
-  height: 100px;
-  margin:0;
-  opacity: 0.85;
-  font-size: 25px;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #000;
+  transition: .5s;
+}
+
+.cardImg img {
+  border-radius: 10px;
+}
+
+.cardImg:hover img {
+  opacity: .4s;
+  transition: .5s;
+}
+
+.card:hover .cardImg {
+  transform: translateY(-100px);
+  transition: all .9s;
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+}
+
+.social-icons a {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
+  background: #fff;
+  font-size: 23px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 6px;
+  transition: .4s;
+  transform: translateY(200px);
+  /* opacity: 0;  */
 }
 
-footer a{
-  color:white;
-  font-size: 1em;
-  text-decoration: underline;
-  margin:0;
-  line-height: 100px;
+.card:hover .social-links li a {
+  transform: translateY(0px);
+  opacity: 1;
 }
 
-footer p{
-  margin:0;
-}
-
-.loggedin button{
-  margin: 10em;
-  height:100px;
-  width:100px
-}
-/* ================================Footer================================ */
+/* ============================================ ABOUT ========================================== */
 
 
 /* =========================Project========================= */
 
+.name-pro {
+  text-align:left;
+}
+
 .project{
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 1em 0 1em 0;
   background-color: rgba(0,0,0,.4)
 }
 
 .project .left {
   width:30%;
+  border: 1px solid black
 }
 
 .project .right{
-  width:60%
+  width:60%;
+  border: 1px solid black
 }
 
 .project img{
@@ -758,7 +845,7 @@ footer p{
 
 
 
- #project input[type=text], input[type=password], select {
+#project input[type=text], input[type=password], select {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
@@ -777,6 +864,105 @@ textarea{
 
 /* =================================Profile Page======================= */
 
-.pro-title {
+/* .pro-pg {
+  height: 100vh;
+} */
+
+
+#work {
   color: black;
 }
+
+.pro-title {
+  padding: 20px;
+  color: black;
+  text-align: center;
+  font-family: var(--mainFont);
+}
+
+.name-pro {
+  text-align:left;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 420px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.profile-img {
+  width: 400px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#name{
+  text-align:left;
+  font-family: var(--mainFont);
+}
+
+.bio  {
+  font-size: 20px;
+  padding: 20px;
+  font-family: var(--secFont)
+}
+
+#email  {
+  font-size: 20px;
+  font-weight: bold;
+  color: #bada55;
+  text-transform: capitalize;
+
+}
+
+.edit-delbtn{
+  color: black;
+  display: flex;
+  padding-top: 25px;
+  opacity: 0.85;
+}
+
+.edit-btn {
+  text-align: center;
+  padding: 30px;
+  font-size: 20px; 
+}
+
+.del-btn {
+  text-align: center;
+  padding: 30px;
+  font-size: 20px; 
+}
+
+
+/* ================================Footer================================ */
+footer{
+  width: 100%;
+  background-color:black;
+  color:white;
+  height: 100px;
+  margin:0;
+  opacity: 0.85;
+  font-size: 25px;
+  text-align: center;
+}
+
+footer a{
+  color:white;
+  font-size: 1em;
+  text-decoration: underline;
+  margin:0;
+  line-height: 100px;
+}
+
+footer p{
+  margin:0;
+}
+
+.loggedin button{
+  margin: 10em;
+  height:100px;
+  width:100px
+}
+/* ================================Footer================================ */

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers, createProject } from '../services/api-helper.js';
+import { getProjects, getUsers, createProject, getUser } from '../services/api-helper.js';
 import Profile from './Profile';
 import Project from './Project';
 import Home from './Home';
 import Header from './Header';
 import CreateProject from './CreateProject';
+import About from '../components/About';
 
 class LoggedIn extends React.Component {
   state = {
     currentUser: null,
     projects: null,
-    users: null,
     projectData: {
       name: '',
       description: '',
@@ -21,13 +21,18 @@ class LoggedIn extends React.Component {
     }
   }
 
-  componentDidMount = () => {
-    this.setState({
-      currentUser: this.props.currentUser,
-      projects: null,
-    })
-    this.getProjects()
-    this.getUsers()
+  componentdidMount = async () => {
+    await this.getProjects()
+    if (this.props.currentUser.id) {
+      await this.getUser()
+    }
+  }
+
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (this.props !== prevProps) {
+      await this.getProjects()
+      await this.getUser()
+    }
   }
 
   getProjects = async () => {
@@ -37,11 +42,13 @@ class LoggedIn extends React.Component {
     })
   }
 
-  getUsers = async () => {
-    const users = await getUsers();
-    this.setState({
-      users
-    })
+  getUser = async () => {
+    if (this.props.currentUser) {
+      const currentUser = await getUser(this.props.currentUser.id)
+      this.setState({
+        currentUser
+      })
+    }
   }
 
   handleProjectChange = (e) => {
@@ -58,9 +65,18 @@ class LoggedIn extends React.Component {
     e.preventDefault()
     const newProject = await createProject(this.state.currentUser.id, this.state.projectData);
     this.setState(prevState => ({
-      projects: [...prevState.projects, newProject]
+      projects: [newProject, ...prevState.projects]
     }))
     this.props.history.push('/')
+    this.setState({
+      projectData: {
+        name: '',
+        description: '',
+        image_url: '',
+        github: '',
+        slack: ''
+      }
+    })
   }
 
   render() {
@@ -70,11 +86,13 @@ class LoggedIn extends React.Component {
           handleLogout={this.props.handleLogout}
           currentUser={this.state.currentUser}
         />
-        <Route exact path="/" render={() => (
-          <Home
-            projects={this.state.projects}
-          />
-        )} />
+        {this.state.projects &&
+          <Route exact path="/" render={() => (
+            <Home
+              projects={this.state.projects}
+            />
+          )} />
+        }
         <Route path="/projects/:id" render={(props) => {
           return <Project
             projectId={props.match.params.id}
@@ -88,19 +106,14 @@ class LoggedIn extends React.Component {
             handleProjectSubmit={this.handleProjectSubmit}
           />
         )} />
-        <Route path="/profiles/:id" render={(props) => {
 
-          const id = parseInt(props.match.params.id)
-          let currentProfile = null
-          if (this.state.users) {
-            currentProfile = this.state.users.find(user => {
-              return user.id === id
-            })
-          }
-
-          return <Profile
-            currentProfile={currentProfile} />
-        }} />
+        <Route path="/profiles/:id" render={(props) => (
+          <Profile
+            id={props.match.params.id}
+            currentUser={this.state.currentUser}
+          />
+        )} />
+        <Route path='/about' render={() => (<About />)} />
       </div >
     )
   }

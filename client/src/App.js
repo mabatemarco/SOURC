@@ -5,8 +5,10 @@ import Footer from './components/Footer'
 import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'
 import Welcome from './components/Welcome'
-import Login from './components/Login'
+import Login from './components/Login';
+import About from './components/About'
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
+
 
 class App extends React.Component {
   state = {
@@ -68,7 +70,6 @@ class App extends React.Component {
         showLogin: false
       })
       this.props.history.push('/')
-
     }
   }
 
@@ -113,7 +114,7 @@ class App extends React.Component {
           <Route path='/' render={() => (
             <LoggedIn
               currentUser={this.state.currentUser}
-              handleLogout = {this.handleLogout}
+              handleLogout={this.handleLogout}
             />
           )} />
           :
