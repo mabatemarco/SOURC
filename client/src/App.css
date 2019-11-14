@@ -818,7 +818,9 @@ h2 {
 
 .project .right{
   width:60%;
-  border: 1px solid black
+  border: 1px solid black;
+  display:flex;
+  justify-content: space-between;
 }
 
 .project img{
@@ -834,6 +836,46 @@ h2 {
   margin:2em;
   background-color: var(--primary);
   padding:0;
+}
+
+
+.project-text{
+  margin: 0 0 0 3em;
+  width:60%
+}
+
+.project-description{
+  margin: 2em 0 0 0;
+  font-size: 1.2em;
+}
+
+.project-links{
+  margin: 2em 0 0 0;
+}
+
+.project-links p{
+  margin: .5em 0 0 0;
+}
+
+.project-members{
+  width:30%;
+  margin: 4em 0 0 0;
+}
+
+.applicants{
+  margin: .8em 0 0 0;
+}
+
+.project .project-members button{
+  display:block;
+  width:70%;
+  height:30px;
+  margin:.2em 0 0 0;
+  font-size: .5em;
+}
+
+.project a{
+  display:block;
 }
 
 /* ========================Create Project ========================== */

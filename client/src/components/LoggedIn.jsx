@@ -21,13 +21,18 @@ class LoggedIn extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    const currentUser = await getUser(this.props.currentUser.id)
-    this.setState({
-      currentUser,
-      projects: null,
-    })
+  componentdidMount = async () => {
     await this.getProjects()
+    if (this.props.currentUser.id) {
+      await this.getUser()
+    }
+  }
+
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (this.props !== prevProps) {
+      await this.getProjects()
+      await this.getUser()
+    }
   }
 
   getProjects = async () => {
@@ -35,6 +40,15 @@ class LoggedIn extends React.Component {
     this.setState({
       projects
     })
+  }
+
+  getUser = async () => {
+    if (this.props.currentUser) {
+      const currentUser = await getUser(this.props.currentUser.id)
+      this.setState({
+        currentUser
+      })
+    }
   }
 
   handleProjectChange = (e) => {
@@ -72,11 +86,13 @@ class LoggedIn extends React.Component {
           handleLogout={this.props.handleLogout}
           currentUser={this.state.currentUser}
         />
-        <Route exact path="/" render={() => (
-          <Home
-            projects={this.state.projects}
-          />
-        )} />
+        {this.state.projects &&
+          <Route exact path="/" render={() => (
+            <Home
+              projects={this.state.projects}
+            />
+          )} />
+        }
         <Route path="/projects/:id" render={(props) => {
           return <Project
             projectId={props.match.params.id}
@@ -90,13 +106,14 @@ class LoggedIn extends React.Component {
             handleProjectSubmit={this.handleProjectSubmit}
           />
         )} />
+
         <Route path="/profiles/:id" render={(props) => (
           <Profile
             id={props.match.params.id}
             currentUser={this.state.currentUser}
           />
         )} />
-        <Route path='/about' render={() => ( <About />)} />
+        <Route path='/about' render={() => (<About />)} />
       </div >
     )
   }

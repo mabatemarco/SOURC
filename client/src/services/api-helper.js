@@ -21,7 +21,7 @@ export const loginUser = async (loginData) => {
     const resp = await api.post('/auth/login', loginData)
     localStorage.setItem('authToken', resp.data.token);
     api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-    return resp.data
+    return resp.data.user
   } catch (e) {
     return { error: 'invalid' }
   }
@@ -32,7 +32,7 @@ export const registerUser = async (registerData) => {
   const resp = await api.post('/auth/register', registerData)
   localStorage.setItem('authToken', resp.data.token);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data
+  return resp.data.user
 }
 
 //get all projects
