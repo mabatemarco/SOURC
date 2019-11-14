@@ -6,6 +6,7 @@ import Project from './Project';
 import Home from './Home';
 import Header from './Header';
 import CreateProject from './CreateProject';
+import About from '../components/About';
 
 class LoggedIn extends React.Component {
   state = {
@@ -83,6 +84,7 @@ class LoggedIn extends React.Component {
           <Profile
             id={props.match.params.id} />
         )} />
+        <Route path='/about' render={() => ( <About />)} />
       </div >
     )
   }
