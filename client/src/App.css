@@ -838,13 +838,21 @@ li {
   margin: 4em 0 0 0;
 }
 
+.applicants{
+  margin: .8em 0 0 0;
+}
+
 .project .project-members button{
-  width:90%;
+  display:block;
+  width:70%;
   height:30px;
-  margin:0;
+  margin:.2em 0 0 0;
   font-size: .5em;
 }
 
+.project a{
+  display:block;
+}
 
 /* ========================Create Project ========================== */
 

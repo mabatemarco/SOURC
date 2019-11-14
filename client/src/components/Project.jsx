@@ -52,23 +52,25 @@ export default class Project extends React.Component {
   }
 
   teamCheck = () => {
-    const team = this.state.currentProject.users.find(user => {
-      return user.id === this.props.currentUser.id
-    })
-    if (team) {
-      if (team.teams.is_leader) {
-        this.setState({
-          isLeader: true
-        })
-      }
-      if (team.teams.is_member) {
-        this.setState({
-          isMember: true
-        })
-      }
-      this.setState({
-        isApplicant: true
+    if (this.state.currentProject) {
+      const team = this.state.currentProject.users.find(user => {
+        return user.id === this.props.currentUser.id
       })
+      if (team) {
+        if (team.teams.is_leader) {
+          this.setState({
+            isLeader: true
+          })
+        }
+        if (team.teams.is_member) {
+          this.setState({
+            isMember: true
+          })
+        }
+        this.setState({
+          isApplicant: true
+        })
+      }
     }
   }
 
@@ -108,9 +110,12 @@ export default class Project extends React.Component {
     }))
   }
 
-  approve = async (id) => {
-    const currentProject = await apply(this.state.currentProject.id, id)
-    await this.currentProject()
+  approve = async (e) => {
+    console.log(e.target.value, this.state.currentProject.id)
+    const currentProject = await approve(this.state.currentProject.id, e.target.value)
+    this.setState({
+      currentProject
+    })
     if (this.props.currentUser) {
       this.teamCheck();
       this.getApplicants();
@@ -165,7 +170,7 @@ export default class Project extends React.Component {
                           <Link to={`/profiles/${applicant.id}`}>
                             {applicant.name}
                           </Link>
-                          <button onclick={() => { approve(applicant.id) }}>Add to team</button>
+                          <button onClick={this.approve} value={applicant.id}>Add to team</button>
                         </>
                       ))}
                     </div>

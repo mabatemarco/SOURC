@@ -41,7 +41,7 @@ projectRouter.post('/create/:creatorId', async (req, res) => {
 
 //edit project, takes project data
 projectRouter.put('/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const data = req.body;
   const project = await Project.findByPk(id);
   await project.update(data);
@@ -50,7 +50,7 @@ projectRouter.put('/:id', async (req, res) => {
 
 //delete project
 projectRouter.delete('/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const project = await Project.findByPk(id);
   await project.destroy
 })
@@ -66,9 +66,9 @@ projectRouter.put('/:projectId/apply/:userId', async (req, res) => {
 })
 
 //leader function to approve user for project
-projectRouter.put('/:projectid/approve/:userId', async (req, res) => {
-  const projectId = req.params.projectId;
-  const userId = req.params.userId;
+projectRouter.put('/:projectId/approve/:userId', async (req, res) => {
+  const projectId = parseInt(req.params.projectId);
+  const userId = parseInt(req.params.userId);
   const project = await Project.findByPk(projectId);
   const user = await User.findByPk(userId);
   await project.addUser(user, { through: { is_member: true, is_leader: false } })
