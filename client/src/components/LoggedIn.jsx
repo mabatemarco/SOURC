@@ -7,6 +7,7 @@ import Home from './Home';
 import Header from './Header';
 import CreateProject from './CreateProject';
 import About from '../components/About';
+import EditProfile from '../components/EditProfile';
 
 class LoggedIn extends React.Component {
   state = {
@@ -18,6 +19,15 @@ class LoggedIn extends React.Component {
       image_url: '',
       github: '',
       slack: ''
+    },
+    profileData: {
+      username: '',
+      password_digest: '',
+      name: '',
+      email_address: '',
+      role: '',
+      about_me: '',
+      image_url: ''
     }
   }
 
@@ -79,6 +89,33 @@ class LoggedIn extends React.Component {
     })
   }
 
+  setFormData = () => {
+    if (this.state.profile) {
+      const {
+        username,
+        password_digest,
+        name,
+        email_address,
+        role,
+        about_me,
+        image_url
+      } = this.state.profile
+
+      this.setState({
+        profileData: {
+          username,
+          password_digest,
+          name,
+          email_address,
+          role,
+          about_me,
+          image_url
+        }
+      })
+    }
+  }
+
+
   render() {
     return (
       <div className="loggedin">
@@ -114,6 +151,13 @@ class LoggedIn extends React.Component {
           />
         )} />
         <Route path='/about' render={() => (<About />)} />
+
+
+        <Route exact path='/editprofile' render={(props) => (
+                <EditProfile
+                  handleEditChange={this.handleEditChange}
+                  handleEditSubmit={this.handleEditSubmit}
+                  profileData={this.state.profileData} />)} />
       </div >
     )
   }
