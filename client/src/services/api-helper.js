@@ -91,12 +91,12 @@ export const deleteUser = async (id) => {
 
 //user application to project, takes project id and user id
 export const apply = async (projectId, userId) => {
-  const response = await api.put(`projects/${projectId}/${userId}`);
+  const response = await api.put(`projects/${projectId}/apply/${userId}`);
   return response.data
 }
 
 //approve member to project, takes project id and user id
 export const approve = async (projectId, userId) => {
-  const response = await api.put(`projects/${projectId}/${userId}`);
+  const response = await api.put(`projects/${projectId}/approve/${userId}`);
   return response.data
 }

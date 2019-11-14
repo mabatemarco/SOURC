@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers, createProject } from '../services/api-helper.js';
+import { getProjects, getUsers, createProject, getUser } from '../services/api-helper.js';
 import Profile from './Profile';
 import Project from './Project';
 import Home from './Home';
@@ -20,12 +20,13 @@ class LoggedIn extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    const currentUser = await getUser(this.props.currentUser.id)
     this.setState({
-      currentUser: this.props.currentUser,
+      currentUser,
       projects: null,
     })
-    this.getProjects()
+    await this.getProjects()
   }
 
   getProjects = async () => {
@@ -52,6 +53,15 @@ class LoggedIn extends React.Component {
       projects: [newProject, ...prevState.projects]
     }))
     this.props.history.push('/')
+    this.setState({
+      projectData: {
+        name: '',
+        description: '',
+        image_url: '',
+        github: '',
+        slack: ''
+      }
+    })
   }
 
   render() {
