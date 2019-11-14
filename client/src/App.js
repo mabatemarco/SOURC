@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Link, Route, withRouter } from 'react-router-dom';
-import Footer from './components/Footer';
-import Register from './components/Register';
-import LoggedIn from './components/LoggedIn';
-import Welcome from './components/Welcome';
-import Login from './components/Login';
-// import Animation from './components/Animation';
+import Footer from './components/Footer'
+import Register from './components/Register'
+import LoggedIn from './components/LoggedIn'
+import Welcome from './components/Welcome'
+import Login from './components/Login'
+import About from './components/About';
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
 
 class App extends React.Component {
@@ -102,6 +102,7 @@ class App extends React.Component {
     return (
       <div className="app">
 
+        {/* <Animation /> */}
         {this.state.showLogin &&
           <Login
             handleLoginChange={this.handleLoginChange}
@@ -131,6 +132,7 @@ class App extends React.Component {
           />
         )}
         />
+        <Route path='/about' render={() => ( <About />)} />
         <Footer />
 
       </div>

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 
 export default function Welcome(props) {
-  return (
 
+  return (
       <div className='welcome-pg'>
         <div className='signreg-btn'>
           <Link to="/register"><button id='btn-sign'>Sign Up</button></Link>
