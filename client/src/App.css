@@ -146,18 +146,6 @@
 
 /* ====================== SOURC TITLE =============================== */
 
-.middleLinks {
-  display: flex;
-  align-self: center;
-}
-
-.middleLinks a{
-  text-decoration: none;
-  color: white;
-  font-size: 1.75em;
-  padding-left: 40px;
-}
-
 /* ============================================== HEADER ============================================ */
 
 /* ========================================== HAMBURGER MENU ======================================== */
@@ -615,7 +603,7 @@ h2 {
 .homeContent {
   padding: 60px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33%);
   grid-gap: 25px;
   text-align: center;
   perspective: 1000px;
@@ -635,12 +623,15 @@ h2 {
 
 .homeContent p {
   font-family: var(--secFont);
+  width: 80%;
+  margin: auto;
+  word-wrap: break-word;
 }
 
 .cards {
   width: 100%;
   background-color: white;
-  height:525px;
+  height: 525px;
   border-radius: 5px;
   box-shadow: 
   5px 10px 15px rgba(0, 0, 0, .5),
