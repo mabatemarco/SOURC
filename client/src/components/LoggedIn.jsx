@@ -49,7 +49,7 @@ class LoggedIn extends React.Component {
     e.preventDefault()
     const newProject = await createProject(this.state.currentUser.id, this.state.projectData);
     this.setState(prevState => ({
-      projects: [...prevState.projects, newProject]
+      projects: [newProject, ...prevState.projects]
     }))
     this.props.history.push('/')
   }

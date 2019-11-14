@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Link, Route, withRouter } from 'react-router-dom';
-import Footer from './components/Footer'
-import Register from './components/Register'
-import LoggedIn from './components/LoggedIn'
-import Welcome from './components/Welcome'
-import Login from './components/Login'
+import Footer from './components/Footer';
+import Register from './components/Register';
+import LoggedIn from './components/LoggedIn';
+import Welcome from './components/Welcome';
+import Login from './components/Login';
+// import Animation from './components/Animation';
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
 
 class App extends React.Component {
