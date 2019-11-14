@@ -977,7 +977,7 @@ textarea{
 
 .edit-delbtn{
   color: black;
-  display: flex;
+  display: inline-block;
   padding-top: 25px;
   opacity: 0.85;
 }
