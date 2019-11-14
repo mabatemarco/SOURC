@@ -310,6 +310,7 @@ nav {
 #navLogo-wel {
   position: absolute;
   top: 0;
+  margin-left: 50px;
 }
 
 .welcome-para {
@@ -421,7 +422,7 @@ h2 {
 }
 
 #btn-log{
-  padding: 10px;
+  padding: 8px 25px;
   border-radius: 5px;
   font-size: 2em;
   color: white;
@@ -584,7 +585,6 @@ h2 {
   width: 100%;
   border-radius: 4px;
   border: 1.4px solid #bada55;
-  padding: 12px;
 }
 
  #register input[type=submit] {
@@ -795,6 +795,32 @@ textarea{
 
 /* =================================Profile Page======================= */
 
-.pro-title {
+.pro-pg {
+  background-size: cover;
+  height: 100vh;
+
+}
+
+#work {
   color: black;
+}
+
+.pro-title {
+  padding: 20px;
+  color: black;
+  text-align: center;
+  font-family: var(--mainFont);
+}
+
+.profile-img {
+  width: 300px;
+}
+
+#name{
+  text-align:left;
+  font-family: var(--secFont);
+}
+
+.name-pro {
+  text-align:left;
 }

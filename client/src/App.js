@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Link, Route, withRouter } from 'react-router-dom';
-import Animation from './components/Animation';
 import Footer from './components/Footer'
 import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'

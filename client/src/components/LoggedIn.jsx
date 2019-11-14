@@ -11,7 +11,6 @@ class LoggedIn extends React.Component {
   state = {
     currentUser: null,
     projects: null,
-    users: null,
     projectData: {
       name: '',
       description: '',
@@ -27,20 +26,12 @@ class LoggedIn extends React.Component {
       projects: null,
     })
     this.getProjects()
-    this.getUsers()
   }
 
   getProjects = async () => {
     const projects = await getProjects();
     this.setState({
       projects
-    })
-  }
-
-  getUsers = async () => {
-    const users = await getUsers();
-    this.setState({
-      users
     })
   }
 
@@ -58,7 +49,7 @@ class LoggedIn extends React.Component {
     e.preventDefault()
     const newProject = await createProject(this.state.currentUser.id, this.state.projectData);
     this.setState(prevState => ({
-      projects: [...prevState.projects, newProject]
+      projects: [newProject, ...prevState.projects]
     }))
     this.props.history.push('/')
   }
@@ -88,19 +79,10 @@ class LoggedIn extends React.Component {
             handleProjectSubmit={this.handleProjectSubmit}
           />
         )} />
-        <Route path="/profiles/:id" render={(props) => {
-
-          const id = parseInt(props.match.params.id)
-          let currentProfile = null
-          if (this.state.users) {
-            currentProfile = this.state.users.find(user => {
-              return user.id === id
-            })
-          }
-
-          return <Profile
-            currentProfile={currentProfile} />
-        }} />
+        <Route path="/profiles/:id" render={(props) => (
+          <Profile
+            id={props.match.params.id} />
+        )} />
       </div >
     )
   }
