@@ -70,7 +70,6 @@ class App extends React.Component {
         showLogin: false
       })
       this.props.history.push('/')
-
     }
   }
 
@@ -126,11 +125,11 @@ class App extends React.Component {
           />}
         <Route path='/register' render={() => (
           <Register
-          handleRegisterSubmit={this.handleRegisterSubmit}
-          handleRegisterChange={this.handleRegisterChange}
-          registerData={this.state.registerData}
+            handleRegisterSubmit={this.handleRegisterSubmit}
+            handleRegisterChange={this.handleRegisterChange}
+            registerData={this.state.registerData}
           />
-          )}
+        )}
         />
         <Footer />
 

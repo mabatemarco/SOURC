@@ -15,8 +15,10 @@ export default class Project extends React.Component {
     leader: null
   }
 
-  componentDidMount = async () => {
-    await this.currentProject();
+  componentdidMount = async () => {
+
+      await this.currentProject();
+  
     if (this.props.currentUser) {
       this.teamCheck();
       this.getApplicants();
@@ -25,11 +27,27 @@ export default class Project extends React.Component {
     }
   }
 
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (this.props !== prevProps) {
+      if (this.props.projectId) {
+        await this.currentProject();
+      }
+      if (this.props.currentUser) {
+        this.teamCheck();
+        this.getApplicants();
+        this.getMembers();
+        this.getLeader()
+      }
+    }
+  }
+
   currentProject = async () => {
-    const currentProject = await getProject(this.props.projectId)
-    this.setState({
-      currentProject
-    })
+    if (this.props.projectId) {
+      const currentProject = await getProject(this.props.projectId)
+      this.setState({
+        currentProject
+      })
+    }
   }
 
   teamCheck = () => {
@@ -46,11 +64,10 @@ export default class Project extends React.Component {
         this.setState({
           isMember: true
         })
-      } else {
-        this.setState({
-          isApplicant: true
-        })
       }
+      this.setState({
+        isApplicant: true
+      })
     }
   }
 
@@ -102,16 +119,18 @@ export default class Project extends React.Component {
                   <img src={GroupPic} alt="" />}
               </div>
               <div className="right">
-                <h2>{this.state.currentProject.name}</h2>
-                <p>{this.state.currentProject.description}</p>
-                {this.state.isMember &&
-                  <>
-                    <p className="git">Github: {this.state.currentProject.github}</p>
-                    <p className="slack"> Slack: {this.state.currentProject.slack}</p>
-                  </>
-                }
-                {this.state.isApplicant === false && <button onClick={this.apply}>Apply!</button>}
-
+                <div className="profile-text">
+                  <h2>{this.state.currentProject.name}</h2>
+                  <h3>Created By {this.state.leader && this.state.leader.name}</h3>
+                  <p>{this.state.currentProject.description}</p>
+                  {this.state.isMember &&
+                    <div className="project-links">
+                      <p className="git">Github: {this.state.currentProject.github}</p>
+                      <p className="slack"> Slack: {this.state.currentProject.slack}</p>
+                    </div>
+                  }
+                  {this.state.isApplicant === false && <button onClick={this.apply}>Apply!</button>}
+                </div>
               </div>
             </div>
           )}

@@ -12,7 +12,7 @@ export default function Home(props) {
 
         {props.projects &&
           props.projects.map(project => (
-            <div className="cards" key={project.name}>
+            <div className="cards" key={project.id}>
 
               <Link to={`projects/${project.id}`} >
                 {project.image_url ? <img src={project.image_url} alt="current project" /> :

@@ -28,7 +28,7 @@ projectRouter.get('/:id', async (req, res) => {
 //create project, takes project data
 projectRouter.post('/create/:creatorId', async (req, res) => {
   const data = req.body;
-  const id = req.params.creatorId;
+  const id = parseInt(req.params.creatorId);
   const user = await User.findByPk(id);
   const project = await Project.create(data);
   await project.addUser(user, { through: { is_member: true, is_leader: true } })
