@@ -681,56 +681,121 @@ h2 {
 
 }
 
+/* ============================================ ABOUT ========================================== */
 
+.container {
+  background: #333;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 25px;
+}
 
+.cardWrap {
+  width: 400px;
+  height: 500px;
+  position: relative;
+}
 
-/* ================================Footer================================ */
-footer{
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+  5px 10px 15px rgba(0, 0, 0, .5),
+  5px 5px 10px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.cardImg img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  background-color:black;
-  color:white;
-  height: 100px;
-  margin:0;
-  opacity: 0.85;
-  font-size: 25px;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #000;
+  transition: .5s;
+}
+
+.cardImg img {
+  border-radius: 10px;
+}
+
+.cardImg:hover img {
+  opacity: .4s;
+  transition: .5s;
+}
+
+.card:hover .cardImg {
+  transform: translateY(-100px);
+  transition: all .9s;
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+}
+
+.social-icons a {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
+  background: #fff;
+  font-size: 23px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 6px;
+  transition: .4s;
+  transform: translateY(200px);
+  /* opacity: 0;  */
 }
 
-footer a{
-  color:white;
-  font-size: 1em;
-  text-decoration: underline;
-  margin:0;
-  line-height: 100px;
+.card:hover .social-links li a {
+  transform: translateY(0px);
+  opacity: 1;
 }
 
-footer p{
-  margin:0;
-}
-
-.loggedin button{
-  margin: 10em;
-  height:100px;
-  width:100px
-}
-/* ================================Footer================================ */
+/* ============================================ ABOUT ========================================== */
 
 
 /* =========================Project========================= */
 
+.name-pro {
+  text-align:left;
+}
+
 .project{
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 1em 0 1em 0;
   background-color: rgba(0,0,0,.4)
 }
 
 .project .left {
   width:30%;
+  border: 1px solid black
 }
 
 .project .right{
-  width:60%
+  width:60%;
+  border: 1px solid black
 }
 
 .project img{
@@ -780,7 +845,7 @@ footer p{
 
 
 
- #project input[type=text], input[type=password], select {
+#project input[type=text], input[type=password], select {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
@@ -801,8 +866,8 @@ textarea{
 
 /* .pro-pg {
   height: 100vh;
-
 } */
+
 
 #work {
   color: black;
@@ -870,3 +935,34 @@ textarea{
   font-size: 20px; 
 }
 
+
+/* ================================Footer================================ */
+footer{
+  width: 100%;
+  background-color:black;
+  color:white;
+  height: 100px;
+  margin:0;
+  opacity: 0.85;
+  font-size: 25px;
+  text-align: center;
+}
+
+footer a{
+  color:white;
+  font-size: 1em;
+  text-decoration: underline;
+  margin:0;
+  line-height: 100px;
+}
+
+footer p{
+  margin:0;
+}
+
+.loggedin button{
+  margin: 10em;
+  height:100px;
+  width:100px
+}
+/* ================================Footer================================ */

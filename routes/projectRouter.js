@@ -31,7 +31,7 @@ projectRouter.post('/create/:creatorId', async (req, res) => {
   const id = req.params.creatorId;
   const user = await User.findByPk(id);
   const project = await Project.create(data);
-  await project.addUser(user, { through: { isleader: true, is_member: true } })
+  await project.addUser(user, { through: { is_member: true, is_leader: true } })
   res.json(project)
 })
 
@@ -52,23 +52,17 @@ projectRouter.delete('/:id', async (req, res) => {
 })
 
 //user application to project
-projectRouter.put('/:projectid/:userId', async (req, res) => {
-  const projectId = req.params.projectId;
-  const userId = req.params.userId;
+projectRouter.put('/:projectId/apply/:userId', async (req, res) => {
+  const projectId = parseInt(req.params.projectId);
+  const userId = parseInt(req.params.userId);
   const project = await Project.findByPk(projectId);
   const user = await User.findByPk(userId);
-  await project.setUser(user)
-  const team = await Team.findAll({
-    where: {
-      user_id: user.id,
-      project_id: project.id
-    }
-  })
-  res.json(team)
+  await project.addUser(user, { through: { is_member: false, is_leader: false } })
+  res.json(project)
 })
 
-//
-projectRouter.put('/:projectid/:userId', async (req, res) => {
+//leader function to approve user for project
+projectRouter.put('/:projectid/approve/:userId', async (req, res) => {
   const projectId = req.params.projectId;
   const userId = req.params.userId;
   const project = await Project.findByPk(projectId);

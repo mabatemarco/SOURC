@@ -1,19 +1,28 @@
 import React from 'react';
-import { getProject } from '../services/api-helper.js';
+import { getProject, apply } from '../services/api-helper.js';
 import GroupPic from '../images/group.jpg'
 
 
 export default class Project extends React.Component {
   state = {
     currentProject: null,
-    owner: false,
-    member: false,
-    edit: false
+    isLeader: false,
+    isMember: false,
+    isApplicant: false,
+    edit: false,
+    applicants: [],
+    members: [],
+    leader: null
   }
 
   componentDidMount = async () => {
-    await this.currentProject()
-    this.teamCheck()
+    await this.currentProject();
+    if (this.props.currentUser) {
+      this.teamCheck();
+      this.getApplicants();
+      this.getMembers();
+      this.getLeader()
+    }
   }
 
   currentProject = async () => {
@@ -21,7 +30,6 @@ export default class Project extends React.Component {
     this.setState({
       currentProject
     })
-    console.log(currentProject)
   }
 
   teamCheck = () => {
@@ -31,15 +39,55 @@ export default class Project extends React.Component {
     if (team) {
       if (team.teams.is_leader) {
         this.setState({
-          owner: true
+          isLeader: true
         })
       }
       if (team.teams.is_member) {
         this.setState({
-          member: true
+          isMember: true
+        })
+      } else {
+        this.setState({
+          isApplicant: true
         })
       }
     }
+  }
+
+  getApplicants = () => {
+    const applicants = this.state.currentProject.users.filter(user => {
+      return user.teams.is_member === false
+    });
+    this.setState({
+      applicants
+    })
+  }
+
+  getMembers = () => {
+    const members = this.state.currentProject.users.filter(user => {
+      return user.teams.is_member === true
+    });
+    this.setState({
+      members
+    })
+  }
+
+  getLeader = () => {
+    const leader = this.state.currentProject.users.find(user => {
+      return user.teams.is_leader === true;
+    });
+    this.setState({
+      leader
+    })
+  }
+
+  apply = async (prevState) => {
+    const currentProject = await apply(this.state.currentProject.id, this.props.currentUser.id)
+    this.setState(prevState => ({
+      currentProject,
+      isApplicant: true,
+      applicants: [...prevState.applicants, this.props.currentUser]
+    }))
   }
 
   render() {
@@ -56,14 +104,14 @@ export default class Project extends React.Component {
               <div className="right">
                 <h2>{this.state.currentProject.name}</h2>
                 <p>{this.state.currentProject.description}</p>
-                {this.state.member ?
+                {this.state.isMember &&
                   <>
                     <p className="git">Github: {this.state.currentProject.github}</p>
                     <p className="slack"> Slack: {this.state.currentProject.slack}</p>
                   </>
-                  :
-                  <button>Apply!</button>
                 }
+                {this.state.isApplicant === false && <button onClick={this.apply}>Apply!</button>}
+
               </div>
             </div>
           )}
