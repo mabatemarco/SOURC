@@ -1,32 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Image from '../images/Cordero.jpg';
 
 export default function About(props) {
 
   return (
-    <div>
-      <div class="container">
+      <div className="container">
 
+        <div className="cardWrap">
 
-        <div class="card-wrapper">
+          <div className="card-one">
 
-          <div class="card">
-
-            <div class="card-image">
-              <img src="" alt="profile one" />
+            <div className="cardImg">
+              <img src="" alt="profile pic" />
             </div>
 
-            <ul class="social-icons">
+            <ul className="social-icons">
               <li><a href=""></a></li>
-              <li><a>href=""></a></li>
+              <li><a href=""></a></li>
               <li><a href=""></a></li>
               <li><a href=""></a></li>
             </ul>
 
-            <div class="details">
+            <div className="details">
               <h2>Mike Abatemarco
               <br />
-                <span class="job-title">
+                <span className="job-title">
                   JOB TITLE
                 </span>
               </h2>
@@ -34,55 +32,56 @@ export default function About(props) {
           </div>
         </div>
 
-        <div class="card-wrapper">
+        <div className="cardWrap">
 
-          <div class="card">
+          <div className="card-two">
 
-            <div class="card-image">
-              <img src="" alt="profile one" />
+            <div className="cardImg">
+              <img src={Image} width='100%' height='100%' alt="profile pic" />
             </div>
 
-            <ul class="social-icons">
+            <ul className="social-icons">
               <li><a href=""></a></li>
-              <li><a>href=""></a></li>
+              <li><a href=""></a></li>
               <li><a href=""></a></li>
               <li><a href=""></a></li>
             </ul>
 
-            <div class="details">
+            <div className="details">
               <h2>Christopher Cordero
               <br />
-                <span class="job-title">Junior Software Engineer</span>
+                <span className="job-title">Junior Software Engineer</span>
               </h2>
             </div>
           </div>
         </div>
 
 
-        <div class="card-wrapper">
+        <div className="cardWrap">
 
-          <div class="card profile-two">
+          <div className="card-three">
 
-            <div class="card-image profile-img--two">
-              <img src="" alt="profile two" />
+            <div className="cardImg">
+              <img src="" alt="profile pic" />
             </div>
 
-            <ul class="social-icons">
+            <ul className="social-icons">
               <li><a href=""></a></li>
               <li><a href=""></a></li>
               <li><a href=""></a></li>
               <li><a href=""></a></li>
             </ul>
 
-            <div class="details jane">
+            <div className="details">
               <h2>Yohlanna Cort
               <br />
                 <span class="job-title">JOB TITLE</span>
               </h2>
+
             </div>
           </div>
         </div>
       </div>
-    </div>
+
   )
 }

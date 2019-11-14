@@ -125,13 +125,12 @@ class App extends React.Component {
           />}
         <Route path='/register' render={() => (
           <Register
-            handleRegisterSubmit={this.handleRegisterSubmit}
-            handleRegisterChange={this.handleRegisterChange}
-            registerData={this.state.registerData}
+          handleRegisterSubmit={this.handleRegisterSubmit}
+          handleRegisterChange={this.handleRegisterChange}
+          registerData={this.state.registerData}
           />
-        )}
+          )}
         />
-        <Route path='/about' render={() => (<About />)} />
         <Footer />
 
       </div>
