@@ -313,6 +313,10 @@ nav {
   margin-left: 50px;
 }
 
+#navLogo-reg{
+  margin-left: 20px;
+}
+
 .welcome-para {
   color: white;
   text-align: center;
@@ -860,11 +864,10 @@ textarea{
 
 /* =================================Profile Page======================= */
 
-.pro-pg {
-  background-size: cover;
+/* .pro-pg {
   height: 100vh;
-  
-}
+} */
+
 
 #work {
   color: black;
@@ -877,14 +880,61 @@ textarea{
   font-family: var(--mainFont);
 }
 
+.name-pro {
+  text-align:left;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 420px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
 .profile-img {
-  width: 300px;
+  width: 400px;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 #name{
   text-align:left;
-  font-family: var(--secFont);
+  font-family: var(--mainFont);
 }
+
+.bio  {
+  font-size: 20px;
+  padding: 20px;
+  font-family: var(--secFont)
+}
+
+#email  {
+  font-size: 20px;
+  font-weight: bold;
+  color: #bada55;
+  text-transform: capitalize;
+
+}
+
+.edit-delbtn{
+  color: black;
+  display: flex;
+  padding-top: 25px;
+  opacity: 0.85;
+}
+
+.edit-btn {
+  text-align: center;
+  padding: 30px;
+  font-size: 20px; 
+}
+
+.del-btn {
+  text-align: center;
+  padding: 30px;
+  font-size: 20px; 
+}
+
 
 /* ================================Footer================================ */
 footer{
@@ -916,4 +966,3 @@ footer p{
   width:100px
 }
 /* ================================Footer================================ */
-

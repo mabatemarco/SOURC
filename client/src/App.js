@@ -9,6 +9,7 @@ import Login from './components/Login';
 import About from './components/About'
 import { verifyUser, loginUser, registerUser } from './services/api-helper'
 
+
 class App extends React.Component {
   state = {
     currentUser: null,
