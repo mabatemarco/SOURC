@@ -11,7 +11,6 @@ class LoggedIn extends React.Component {
   state = {
     currentUser: null,
     projects: null,
-    users: null,
     projectData: {
       name: '',
       description: '',
@@ -27,20 +26,12 @@ class LoggedIn extends React.Component {
       projects: null,
     })
     this.getProjects()
-    this.getUsers()
   }
 
   getProjects = async () => {
     const projects = await getProjects();
     this.setState({
       projects
-    })
-  }
-
-  getUsers = async () => {
-    const users = await getUsers();
-    this.setState({
-      users
     })
   }
 
@@ -88,10 +79,10 @@ class LoggedIn extends React.Component {
             handleProjectSubmit={this.handleProjectSubmit}
           />
         )} />
-        <Route path="/profiles/:id" render={(props) => {
-          return <Profile
+        <Route path="/profiles/:id" render={(props) => (
+          <Profile
             id={props.match.params.id} />
-        }} />
+        )} />
       </div >
     )
   }
