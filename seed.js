@@ -8,35 +8,60 @@ const main = async () => {
   const user1 = await User.create({
     username: 'mike',
     password_digest: 'fdwqfdsgre',
-    description: 'frewfiwlnfewq'
+    name: 'mike',
+    email: 'fafewf@aol.com',
+    role: 'SE',
+    about_me: 'refdsafew',
+    image_url: ''
   })
   const user2 = await User.create({
     username: 'Yohlanna',
     password_digest: 'fdwqfdsagt4fdsgre',
-    description: 'frewfihytecqfcwlnfewq'
+    name: 'lanna',
+    email: 'fafewf@aol.com',
+    role: 'SE',
+    about_me: 'refdsafew',
+    image_url: ''
   })
   const user3 = await User.create({
     username: 'Chris',
     password_digest: 'fdwqferwterdsgre',
-    description: 'frewfiwnkuqxwlnfewq'
+    name: 'chris',
+    email: 'fafewf@aol.com',
+    role: 'SE',
+    about_me: 'refdsafew',
+    image_url: ''
   })
   const user4 = await User.create({
     username: 'David',
     password_digest: 'fdwqferwterdsgre',
-    description: 'frewfiwnkuqxwlnfewq'
+    name: 'dave',
+    email: 'fafewf@aol.com',
+    role: 'SE',
+    about_me: 'refdsafew',
+    image_url: ''
   })
 
   const Project1 = await Project.create({
     name: 'SOURC',
-    description: '432165gfdwsfredsa'
+    description: '432165gfdwsfredsa',
+    image_url: '',
+    github: 'fwqfdsagreafdsafew',
+    slack: 'gfasfdsafdwasfew'
   })
   const Project2 = await Project.create({
     name: 'dont eat here',
-    description: '432165gfdwsgerwsvdscefredsa'
+    description: '432165gfdwsgerwsvdscefredsa',
+    image_url: '',
+    github: 'fwqfdsagreafdsafew',
+    slack: 'gfasfdsafdwasfew'
   })
   const Project3 = await Project.create({
     name: 'shopping list',
-    description: '432165gfdq  trewsfredsa'
+    description: '432165gfdq  trewsfredsa',
+    image_url: '',
+    github: 'fwqfdsagreafdsafew',
+    slack: 'gfasfdsafdwasfew'
   })
 
   await user1.addProject([Project1, Project3])

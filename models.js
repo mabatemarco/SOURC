@@ -25,11 +25,11 @@ User.init({
   email_address: Sequelize.STRING,
   role: Sequelize.STRING,
   about_me: {
-    type:Sequelize.TEXT,
+    type: Sequelize.TEXT,
     allowNull: true
   },
   image_url: {
-    type:Sequelize.TEXT,
+    type: Sequelize.TEXT,
     allowNull: true
   }
 },
@@ -42,11 +42,17 @@ Project.init({
   name: Sequelize.STRING,
   description: Sequelize.TEXT,
   image_url: {
-    type:Sequelize.TEXT,
+    type: Sequelize.TEXT,
     allowNull: true
   },
-  github: Sequelize.TEXT,
-  slack: Sequelize.TEXT
+  github: {
+    type: Sequelize.TEXT,
+    allowNull: true
+  },
+  slack: {
+    type: Sequelize.TEXT,
+    allowNull: true
+  },
 }, {
   sequelize,
   modelName: 'projects'
