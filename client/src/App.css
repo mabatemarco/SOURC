@@ -605,8 +605,17 @@ h2 {
 }
 .projects-heading{
   background:rgba(41, 118, 206, 0.781);
-  margin:0
+  color:white;
+  font-style: var(--secFont);
+  font-size: 40px;
+  padding-top:40px;
 }
+
+.projects-heading span {
+color: #bada55;
+}
+
+
 
 .homeContent {
   padding: 60px;
@@ -932,28 +941,64 @@ textarea{
   color: black;
 }
 
+.pro-pg {
+  height: 850px;
+  background-image: url('./images/probg.jpg');
+  background-size: cover;
+}
+
 .pro-title {
-  padding: 20px;
+  padding: 30px;
   color: black;
   text-align: center;
-  font-family: var(--mainFont);
+  font-family: var(--secFont);
+  color: white;
+
+}
+
+.pro-title span{
+  color:#bada55;
 }
 
 .name-pro {
   text-align:left;
-  box-sizing: border-box;
-  border: 1px solid black;
-  width: 420px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  margin-left: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: black;
+
 }
 
-.profile-img {
-  width: 400px;
-  border-radius: 5px;
-  padding: 20px;
+#name {
+  font-size: 40px;
 }
+
+.pro-image{
+  text-align:center;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 20px;
+  width: 320px;
+  height: 400px;
+  border-radius: 15px;
+  background-color: white;
+
+}
+
+.brief-pro {
+  text-align:left;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 600px;
+  border-radius: 15px;
+  height: 300px;
+  background-color: white;
+  padding:20px;
+  margin: 20px;
+
+}
+
 
 #name{
   font-family: var(--mainFont);
