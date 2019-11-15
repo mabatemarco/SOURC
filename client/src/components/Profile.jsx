@@ -3,6 +3,8 @@ import { Link, Route } from 'react-router-dom';
 import EditProfile from './EditProfile';
 import { getUser, getUsers, editUser, deleteUser } from '../services/api-helper.js';
 import { proimg } from '../images/proimg.png';
+import GroupPic from '../images/group.jpg';
+
 
 export default class Profile extends React.Component {
   state = {
@@ -70,15 +72,31 @@ export default class Profile extends React.Component {
 
               }
 
-            <div className='projectuser'>
-                <h1>{}</h1>
-              </div>
             </div>
           )
+
+        }
+        <div className='projectuser'>
+          {this.props.projects &&
+        this.props.projects.map(project => (
+          <div className="profile-proj" key={project.id}>
+
+            {/* <Link to={`projects/${project.id}`} > */}
+              {project.image_url ? <img src={project.image_url} width='350px' height='300px' alt="current project" /> :
+                <img src={GroupPic} width='350px' height='300px' alt="game peice" />}
+            {/* </Link> */}
+
+            <h2>{project.name}</h2>
+            <p>{project.description}</p>
+          </div>
+        ))
+      }
+          </div>
+         
           
         
 
-        }
+        
 
 
       </div>
