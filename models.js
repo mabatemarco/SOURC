@@ -49,7 +49,7 @@ User.init({
   })
 
 Project.init({
-  name: Sequelize.STRING,
+  name: Sequelize.TEXT,
   description: Sequelize.TEXT,
   image_url: {
     type: Sequelize.TEXT,

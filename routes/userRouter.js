@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const userRouter = Router();
 const { User, Project, Team } = require('../models');
-const { restrict } = require('../services/auth')
 
 
 //get all users
