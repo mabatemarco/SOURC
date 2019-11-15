@@ -19,9 +19,9 @@ export default function About(props) {
             <h2>Mike Abatemarco</h2>
             <h3>Junior Junior Developer</h3>
             <div className='social-links'>
-              <a href='https://github.com/mabatemarco' target='_blank' ><i class="im im-github"></i></a>
-              <a href='https://www.linkedin.com/in/mikeabatemarco/' target='_blank' ><i class="im im-linkedin"></i></a>
-              <a href='https://www.instagram.com/freshhotnog/' target='_blank' ><i class="im im-instagram"></i></a>
+              <a href='https://github.com/mabatemarco' target='_blank' ><i className="im im-github"></i></a>
+              <a href='https://www.linkedin.com/in/mikeabatemarco/' target='_blank' ><i className="im im-linkedin"></i></a>
+              <a href='https://www.instagram.com/freshhotnog/' target='_blank' ><i className="im im-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -36,10 +36,10 @@ export default function About(props) {
             <h2>Christopher Cordero</h2>
             <h3>Junior Software Engineer</h3>
             <div className='social-links'>
-              <a href='https://git.generalassemb.ly/Cordero' target='_blank' ><i class="im im-github"></i></a>
-              <a href='https://www.linkedin.com/in/christopher-cordero/' target='_blank' ><i class="im im-linkedin"></i></a>
-              <a href='https://www.instagram.com/el_quesoblanco/' target='_blank' ><i class="im im-instagram"></i></a>
-              <a href='https://twitter.com/QuesoBlanco97' target='_blank' ><i class="im im-twitter"></i></a>
+              <a href='https://git.generalassemb.ly/Cordero' target='_blank' ><i className="im im-github"></i></a>
+              <a href='https://www.linkedin.com/in/christopher-cordero/' target='_blank' ><i className="im im-linkedin"></i></a>
+              <a href='https://www.instagram.com/el_quesoblanco/' target='_blank' ><i className="im im-instagram"></i></a>
+              <a href='https://twitter.com/QuesoBlanco97' target='_blank' ><i className="im im-twitter"></i></a>
             </div>
           </div>
         </div>
@@ -54,9 +54,9 @@ export default function About(props) {
             <h2>Yohlanna Cort</h2>
             <h3>Junior Software Developer</h3>
             <div className='social-links'>
-              <a href='https://github.com/lanna817/' target='_blank' ><i class="im im-github"></i></a>
-              <a href='https://www.linkedin.com/in/yohlannacort/' target='_blank' ><i class="im im-linkedin"></i></a>
-              <a href='https://www.instagram.com/?hl=en' target='_blank' ><i class="im im-instagram"></i></a>
+              <a href='https://github.com/lanna817/' target='_blank' ><i className="im im-github"></i></a>
+              <a href='https://www.linkedin.com/in/yohlannacort/' target='_blank' ><i className="im im-linkedin"></i></a>
+              <a href='https://www.instagram.com/?hl=en' target='_blank' ><i className="im im-instagram"></i></a>
             </div>
           </div>
         </div>

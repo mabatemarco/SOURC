@@ -613,7 +613,7 @@ h2 {
 }
 
 .projects-heading span {
-color: #bada55;
+ color: #bada55;
 }
 
 
@@ -776,8 +776,8 @@ color: #bada55;
   transform: translateY(110px);
 }
 
-.cardBack h2, .cardBackh3 {
-  transform: translateY(80px);
+.cardBack h2, .cardBack h3 {
+  transform: translateY(60px);
 }
 
 .cardBack h2{
@@ -802,7 +802,6 @@ color: #bada55;
 
 .social-links i:hover {
   transform: scale(1.6);
-  color: var(--primary);
 }
 
 #abt-title{
@@ -812,6 +811,23 @@ color: #bada55;
 #abt-title span {
   color: #bada55;
 }
+
+.im-linkedin:hover {
+  color: #006097;
+}
+
+.im-twitter:hover {
+  color: #1791DA;
+}
+
+.im-instagram:hover {
+  color: var(--primary)
+}
+
+.im-github:hover {
+  color: var(--primary)
+}
+
 
 /* ============================================ ABOUT ========================================== */
 
