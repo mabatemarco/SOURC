@@ -139,6 +139,8 @@ class LoggedIn extends React.Component {
           <Profile
             id={props.match.params.id}
             currentUser={this.props.currentUser}
+            projects={this.state.projects}
+
           />
         )} />
         <Route path='/about' render={() => (<About />)} />

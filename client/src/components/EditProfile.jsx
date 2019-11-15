@@ -7,7 +7,7 @@ export default function EditProfile(props) {
       {
         props.profileData &&
         <div className='edit-pg'>
-          <h1>Edit Profile</h1>
+          <h1 id='edit-pro'>Update.<span>Profile</span></h1>
           <form id='edit-data' onSubmit={props.handleEditSubmit}>
             <label htmlFor="username">Username</label>
             <input

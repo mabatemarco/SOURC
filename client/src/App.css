@@ -571,12 +571,16 @@ h2 {
   border: 1.4px solid #bada55;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 15px;
+
 }
 
 #register textarea {
   width: 100%;
   border-radius: 4px;
   border: 1.4px solid #bada55;
+  font-size: 15px;
+
 }
 
 #register input[type=submit] {
@@ -1020,29 +1024,50 @@ textarea{
 
 /* ================================Edit Profile============================== */
 
+.edit-pg {
+  background-image: url('./images/edit-pro.jpg');
+  background-size: cover;
+  height:950px;
+  
+}
+#edit-pro{
+  text-align: center;
+ padding-top: 80px;
+ font-size: 60px;
+}
+
+#edit-pro span{
+  color: #bada55;
+}
 #edit-data{
   width:32%;
   margin: 0 auto;
   border-radius: 5px;
-  background-color: #A19DAD;
+  background-color: #7D7D7D;
   padding: 40px;
   opacity: 0.9;
-  padding-bottom: 55px;
+  padding-bottom: 80px;
+  margin-top: 50px;
+  height: 500px;
 }
 
 
 #edit-data input[type=text], input[type=password], select{
-width: 50%;
-padding: 8px;
+width: 100%;
+padding: 10px;
 margin: 10px 0;
-display: inline-block;
 border: 1.4px solid #bada55;
 border-radius: 4px;
 box-sizing: border-box;
+font-size: 15px;
+}
+
+#edit-data textarea{
+  font-size:15px;
 }
 
 #edit-data input[type=submit] {
-background-color: #4CAF50;
+background-color: rgb(0, 0, 0);
 color: white;
 padding: 12px 25px;
 border: none;
@@ -1050,7 +1075,24 @@ border-radius: 4px;
 cursor: pointer;
 margin-top: 5px;
 float: right;
+font-size:20px;
 }
+
+#edit-data input[type=submit]:hover {
+  background-color: #bada55;
+  color: black;
+}
+
+label[for=username],[for=name],[for=password][for=email_address],[for=role],
+[for=image_url],[for=about_me]
+{
+  color:black;
+  font-size: 20px;
+}
+
+
+
+
 /* ================================Footer================================ */
 footer{
   width: 100%;
