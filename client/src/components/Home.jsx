@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 export default function Home(props) {
 
   return (
-
+<>
+<h2 className='projects-heading'>Projects</h2>
     <div className="home" >
 
       <div className="homeContent">
-
+        
         {props.projects &&
           props.projects.map(project => (
             <div className="cards" key={project.id}>
@@ -28,6 +29,6 @@ export default function Home(props) {
       </div>
 
     </div>
-
+</>
   )
 }

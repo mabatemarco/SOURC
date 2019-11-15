@@ -22,20 +22,25 @@ class LoggedIn extends React.Component {
     }
   }
 
-  componentdidMount = async () => {
-    this.getProjects()
-      await this.getUser()
-      await this.currentProfile()
-      await this.setFormData()
-    
-  }
-
-  componentDidUpdate = async (prevProps, prevState) => {
-    if (this.props !== prevProps) {
-      await this.getProjects()
-      // await this.getUser()
+  handleVerify = async () => {
+    const currentUser = await verifyUser();
+    if (currentUser) {
+      this.setState({ currentUser })
     }
   }
+
+  componentDidMount = async () => {
+    await this.handleVerify();
+    await this.getProjects()
+
+  }
+
+  // componentDidUpdate = async () => {
+  //   if (this.state.projects === null) {
+  //     await this.handleVerify()
+  //     await this.getProjects()
+  //   }
+  // }
 
   getProjects = async () => {
     const projects = await getProjects();
@@ -116,7 +121,7 @@ class LoggedIn extends React.Component {
             />
           )} />
         }
-        <Route path="/projects/:id" render={(props) => {
+        <Route exact path="/projects/:id" render={(props) => {
           return <Project
             projectId={props.match.params.id}
             currentUser={this.state.currentUser}
@@ -141,10 +146,10 @@ class LoggedIn extends React.Component {
 
         <Route exact path='/editprofile' render={(props) => (
 
-                <EditProfile
-                  handleEditChange={this.props.handleEditChange}
-                  handleEditSubmit={this.props.handleEditSubmit}
-                  profileData={this.props.profileData} />)} />
+          <EditProfile
+            handleEditChange={this.props.handleEditChange}
+            handleEditSubmit={this.props.handleEditSubmit}
+            profileData={this.props.profileData} />)} />
 
       </div >
     )

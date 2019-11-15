@@ -16,10 +16,8 @@ export default class Project extends React.Component {
     leader: null
   }
 
-  componentdidMount = async () => {
-
+  componentDidMount = async () => {
     await this.currentProject();
-
     if (this.props.currentUser) {
       this.teamCheck();
       this.getApplicants();
@@ -28,27 +26,13 @@ export default class Project extends React.Component {
     }
   }
 
-  componentDidUpdate = async (prevProps, prevState) => {
-    if (this.props !== prevProps) {
-      if (this.props.projectId) {
-        await this.currentProject();
-      }
-      if (this.props.currentUser) {
-        this.teamCheck();
-        this.getApplicants();
-        this.getMembers();
-        this.getLeader()
-      }
-    }
-  }
-
   currentProject = async () => {
-    if (this.props.projectId) {
-      const currentProject = await getProject(this.props.projectId)
-      this.setState({
-        currentProject
-      })
-    }
+
+    const currentProject = await getProject(this.props.projectId)
+    this.setState({
+      currentProject
+    })
+
   }
 
   teamCheck = () => {

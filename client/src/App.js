@@ -47,7 +47,6 @@ class App extends React.Component {
     const currentUser = await verifyUser();
     if (currentUser) {
       this.setState({ currentUser })
-      this.currentProfile()
     }
   }
 
@@ -105,13 +104,6 @@ class App extends React.Component {
     })
     localStorage.removeItem('authToken')
     this.props.history.push('/')
-  }
-  currentProfile = async () => {
-    const profile = await getUser(this.state.currentUser.id)
-    this.setState({
-      profile
-    })
-    this.setFormData()
   }
 
   setFormData = () => {

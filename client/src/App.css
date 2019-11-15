@@ -563,7 +563,7 @@ h2 {
   padding-bottom: 55px;
 }
 
- #register input[type=text], input[type=password], select {
+ #register input, #register select {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
@@ -579,7 +579,7 @@ h2 {
   border: 1.4px solid #bada55;
 }
 
- #register input[type=submit] {
+#register input[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 25px;
@@ -598,6 +598,10 @@ h2 {
 
 .home {
   background: rgba(41, 118, 206, 0.781);
+}
+.projects-heading{
+  background:rgba(41, 118, 206, 0.781);
+  margin:0
 }
 
 .homeContent {
@@ -639,6 +643,7 @@ h2 {
   padding-bottom: 30px;
   transform: scale(.9);
   transition: transform ease-in-out .3s;
+  overflow:hidden
 }
 
 .cards:hover {
@@ -757,7 +762,7 @@ h2 {
   transform: translateY(110px);
 }
 
-.cardBack h2, h3 {
+.cardBack h2, .cardBackh3 {
   transform: translateY(80px);
 }
 
@@ -808,7 +813,7 @@ h2 {
 }
 
 .project .right{
-  width:60%;
+  width:70%;
   border: 1px solid black;
   display:flex;
   justify-content: space-between;
@@ -820,18 +825,23 @@ h2 {
   object-fit: cover;
 }
 
-.project button{
+ .project button{
   border-radius: 5px;
   height:50px;
   font-size: 1.5em;
-  margin:2em;
+  margin:3em 0 0 0;
   background-color: var(--primary);
   padding:0;
+  background-color: --primary;
+}
+
+.project p{
+  word-wrap: break-word;
 }
 
 
 .project-text{
-  margin: 0 0 0 3em;
+  margin: 0 2em 0 3em;
   width:60%
 }
 
@@ -895,7 +905,7 @@ h2 {
   padding-bottom: 55px;
 }
 
-#project input[type=text], input[type=password], select {
+#project input, select {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
@@ -1065,9 +1075,4 @@ footer p{
   margin:0;
 }
 
-.loggedin button{
-  margin: 10em;
-  height:100px;
-  width:100px
-}
 /* ================================Footer================================ */

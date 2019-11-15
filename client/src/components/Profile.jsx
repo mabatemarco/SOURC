@@ -24,12 +24,6 @@ export default class Profile extends React.Component {
       profile
     })
   }
-  componentDidUpdate = async (prevProps) => {
-    if (this.props !== prevProps) {
-      await this.currentProfile()
-      this.ownerPro()
-    }
-  }
 
 
   ownerPro = async () => {
