@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers, createProject, getUser } from '../services/api-helper.js';
+import { getProjects, getUsers, createProject, getUser, editUser, verifyUser } from '../services/api-helper.js';
 import Profile from './Profile';
 import Project from './Project';
 import Home from './Home';
@@ -19,29 +19,21 @@ class LoggedIn extends React.Component {
       image_url: '',
       github: '',
       slack: ''
-    },
-    profileData: {
-      username: '',
-      password_digest: '',
-      name: '',
-      email_address: '',
-      role: '',
-      about_me: '',
-      image_url: ''
     }
   }
 
   componentdidMount = async () => {
-    await this.getProjects()
-    if (this.props.currentUser.id) {
+    this.getProjects()
       await this.getUser()
-    }
+      await this.currentProfile()
+      await this.setFormData()
+    
   }
 
   componentDidUpdate = async (prevProps, prevState) => {
     if (this.props !== prevProps) {
       await this.getProjects()
-      await this.getUser()
+      // await this.getUser()
     }
   }
 
@@ -89,30 +81,24 @@ class LoggedIn extends React.Component {
     })
   }
 
-  setFormData = () => {
-    if (this.state.profile) {
-      const {
-        username,
-        password_digest,
-        name,
-        email_address,
-        role,
-        about_me,
-        image_url
-      } = this.state.profile
 
-      this.setState({
-        profileData: {
-          username,
-          password_digest,
-          name,
-          email_address,
-          role,
-          about_me,
-          image_url
-        }
-      })
-    }
+
+  handleEditChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      profileData: {
+        ...prevState.profileData,
+        [name]: value
+      }
+    })
+    )
+  }
+
+  handleEditSubmit = async (e) => {
+    e.preventDefault();
+    const newProfile = await editUser();
+    this.setState({ newProfile })
+
   }
 
 
@@ -121,7 +107,7 @@ class LoggedIn extends React.Component {
       <div className="loggedin">
         <Header
           handleLogout={this.props.handleLogout}
-          currentUser={this.state.currentUser}
+          currentUser={this.props.currentUser}
         />
         {this.state.projects &&
           <Route exact path="/" render={() => (
@@ -147,7 +133,7 @@ class LoggedIn extends React.Component {
         <Route path="/profiles/:id" render={(props) => (
           <Profile
             id={props.match.params.id}
-            currentUser={this.state.currentUser}
+            currentUser={this.props.currentUser}
           />
         )} />
         <Route path='/about' render={() => (<About />)} />
@@ -155,9 +141,9 @@ class LoggedIn extends React.Component {
 
         <Route exact path='/editprofile' render={(props) => (
                 <EditProfile
-                  handleEditChange={this.handleEditChange}
-                  handleEditSubmit={this.handleEditSubmit}
-                  profileData={this.state.profileData} />)} />
+                  handleEditChange={this.props.handleEditChange}
+                  handleEditSubmit={this.props.handleEditSubmit}
+                  profileData={this.props.profileData} />)} />
       </div >
     )
   }

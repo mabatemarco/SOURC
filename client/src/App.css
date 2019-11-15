@@ -923,11 +923,6 @@ textarea{
 
 /* =================================Profile Page======================= */
 
-/* .pro-pg {
-  height: 100vh;
-} */
-
-
 #work {
   color: black;
 }
@@ -944,7 +939,6 @@ textarea{
   box-sizing: border-box;
   border: 1px solid black;
   width: 420px;
-  height: auto;
   margin-bottom: 20px;
   border-radius: 5px;
   margin-left: 20px;
@@ -957,7 +951,6 @@ textarea{
 }
 
 #name{
-  text-align:left;
   font-family: var(--mainFont);
 }
 
@@ -977,24 +970,86 @@ textarea{
 
 .edit-delbtn{
   color: black;
-  display: inline-block;
-  padding-top: 25px;
   opacity: 0.85;
+  padding: 20px;
 }
 
-.edit-btn {
+#edit-btn {
+  color:white;
+  background-color: black;
   text-align: center;
-  padding: 30px;
-  font-size: 20px; 
+  margin: 5px;
+  height: 50px;
+  font-size: 15px; 
+  padding: 10px;
 }
 
-.del-btn {
+#del-btn {
+  color:white;
   text-align: center;
-  padding: 30px;
-  font-size: 20px; 
+  font-size: 15px; 
+  margin: 5px;
+  height: 50px;
+  color:white;
+  background-color: black;
+  padding: 10px;
+
+
+}
+
+#edit-btn:hover {
+  color: black;
+  background-color:#bada55;
+}
+
+#del-btn:hover {
+  color: black;
+  background-color:#bada55;
+}
+
+.role {
+  font-size: 30px;
+  text-align: left;
+  text-transform: upperCase;
+  font-family: var(--mainFont);
+  width: 100%;
+
 }
 
 
+/* ================================Edit Profile============================== */
+
+#edit-data{
+  width:32%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #A19DAD;
+  padding: 40px;
+  opacity: 0.9;
+  padding-bottom: 55px;
+}
+
+
+#edit-data input[type=text], input[type=password], select{
+width: 50%;
+padding: 8px;
+margin: 10px 0;
+display: inline-block;
+border: 1.4px solid #bada55;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+#edit-data input[type=submit] {
+background-color: #4CAF50;
+color: white;
+padding: 12px 25px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-top: 5px;
+float: right;
+}
 /* ================================Footer================================ */
 footer{
   width: 100%;
