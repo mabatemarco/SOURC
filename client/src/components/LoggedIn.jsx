@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import { getProjects, getUsers, createProject, getUser, editUser, verifyUser } from '../services/api-helper.js';
+import { getProjects, getUsers, createProject, getUser, editUser, verifyUser, deleteUser } from '../services/api-helper.js';
 import Profile from './Profile';
 import Project from './Project';
 import Home from './Home';
@@ -100,6 +100,12 @@ class LoggedIn extends React.Component {
 
   }
 
+  deleteProfile = async (e) => {
+    await deleteUser(e.target.value);
+    this.props.handleLogout();
+    this.props.history.push('/')
+  }
+
 
   render() {
     return (
@@ -134,7 +140,7 @@ class LoggedIn extends React.Component {
             id={props.match.params.id}
             currentUser={this.props.currentUser}
             projects={this.state.projects}
-
+            deleteProfile={this.deleteProfile}
           />
         )} />
         <Route path='/about' render={() => (<About />)} />
