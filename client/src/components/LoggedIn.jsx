@@ -35,12 +35,6 @@ class LoggedIn extends React.Component {
 
   }
 
-  // componentDidUpdate = async () => {
-  //   if (this.state.projects === null) {
-  //     await this.handleVerify()
-  //     await this.getProjects()
-  //   }
-  // }
 
   getProjects = async () => {
     const projects = await getProjects();

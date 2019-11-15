@@ -11,7 +11,7 @@ const main = async () => {
     name: 'mike',
     email: 'fafewf@aol.com',
     role: 'SE',
-    about_me: 'refdsafew',
+    about_me: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image_url: ''
   })
   const user2 = await User.create({
@@ -20,7 +20,7 @@ const main = async () => {
     name: 'lanna',
     email: 'fafewf@aol.com',
     role: 'SE',
-    about_me: 'refdsafew',
+    about_me: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.',
     image_url: ''
   })
   const user3 = await User.create({
@@ -29,7 +29,7 @@ const main = async () => {
     name: 'chris',
     email: 'fafewf@aol.com',
     role: 'SE',
-    about_me: 'refdsafew',
+    about_me: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu risus quis varius quam quisque. Congue nisi vitae suscipit tellus mauris a diam.',
     image_url: ''
   })
   const user4 = await User.create({
@@ -38,7 +38,7 @@ const main = async () => {
     name: 'dave',
     email: 'fafewf@aol.com',
     role: 'SE',
-    about_me: 'refdsafew',
+    about_me: 'auctor neque vitae tempus quam pellentesque nec nam aliquam sem',
     image_url: ''
   })
 

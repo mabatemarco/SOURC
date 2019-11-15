@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import EditProfile from './EditProfile';
-import { getUser, getUsers, editUser, deleteUser } from '../services/api-helper.js';
-import { proimg } from '../images/proimg.png';
+import { getUser, deleteUser} from '../services/api-helper.js';
 import GroupPic from '../images/group.jpg';
 
 
 export default class Profile extends React.Component {
   state = {
     profile: null,
-    isOwner: false,
-    
+    isOwner: false
 
   }
 
@@ -35,26 +33,31 @@ export default class Profile extends React.Component {
           isOwner: true
         })
       }
-      console.log(this.props.currentUser.id)
     }
   }
+
+
+
 
 
   render() {
     return (
       <div className='pro-pg'>
-        <h1 className='pro-title'>Profile</h1>
+       
+        <h1 className='pro-title'>View.<span>Profile</span></h1>
+        
         {
           this.state.profile && (
             <div className='name-pro'>
               <div className="pro-image">
-                {this.state.profile.image_url ? <img className='profile-img' src={this.state.profile.image_url} alt="current project" /> :
-                  <img className='profile-img' src={proimg} alt="profile silhouette" />}
-              </div>
-              <h3 className='role'>{this.state.profile.role}</h3>
+                {this.state.profile.image_url ? <img src={this.state.profile.image_url} width='318px' height='auto' alt="current project" /> :
+                  <img src={'https://media.giphy.com/media/KVbwYtTO0stPi/source.mp4'} width='318px' height='auto' alt="man walking" />}
               <h2 id='name'>{this.state.profile.username}</h2>
-              <p className='bio'>{this.state.profile.about_me}</p>
-              <p className='bio'>Contact: <span id='email'>{this.state.profile.email_address}</span></p>
+              </div>
+              <div className='brief-pro'>
+              <h3 className='role'>Type: {this.state.profile.role}</h3>
+              <p className='bio'>Bio: {this.state.profile.about_me}</p>
+              <p className='bio'>Email: <span id='email'>{this.state.profile.email_address}</span></p>
               {this.state.isOwner &&
                 <div className='edit-delbtn'>
 
@@ -64,36 +67,36 @@ export default class Profile extends React.Component {
                   <button id='del-btn'>Delete </button>
                 </div>
 
-              }
+}
+</div>
 
             </div>
           )
-
         }
-        <div className='projectuser'>
-          {this.props.projects &&
+        {/* {this.props.projects &&
         this.props.projects.map(project => (
           <div className="profile-proj" key={project.id}>
-
-            {/* <Link to={`projects/${project.id}`} > */}
-              {project.image_url ? <img src={project.image_url} width='350px' height='300px' alt="current project" /> :
-                <img src={GroupPic} width='350px' height='300px' alt="game peice" />}
-            {/* </Link> */}
-
-            <h2>{project.name}</h2>
-            <p>{project.description}</p>
+          
+          <Link to={`projects/${project.id}`} >
+          {project.image_url ? <img src={project.image_url} width='250px;' height='auto' alt="current project" /> :
+          <img src={GroupPic} width='250px;' height='auto' alt="" />}
+          </Link>
+          
+          <h2>{project.name}</h2>
           </div>
-        ))
-      }
-          </div>
-         
+          ))
+        } */}
           
         
+      
 
-        
+</div>
 
 
-      </div>
+
+
+
+  
     )
   }
 }

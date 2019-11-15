@@ -1,13 +1,14 @@
 import React from 'react';
 import Image1 from '../images/Chris.JPG';
 import Image2 from '../images/Mike.png';
+import Image3 from '../images/Yohlanna.jpg'
 
 export default function About(props) {
 
   return (
     <div className="container">
 
-      <h1>About Us</h1>
+      <h1 id='abt-title'>About <span>Us</span></h1>
 
       <div className="card ">
         <div className='inner'>
@@ -47,15 +48,15 @@ export default function About(props) {
       <div className="card">
         <div className='inner'>
           <div className='cardFront'>
-            <img src='' width='100%' height='100%' alt="Yohlanna's Profile Picture" />
+            <img src={Image3} width='100%' height='100%' alt="Yohlanna's Profile Picture" />
           </div>
           <div className="cardBack">
             <h2>Yohlanna Cort</h2>
-            <h3>JOB TITLE</h3>
+            <h3>Junior Software Developer</h3>
             <div className='social-links'>
-              <a href='' target='_blank' ><i class="im im-github"></i></a>
-              <a href='' target='_blank' ><i class="im im-linkedin"></i></a>
-              <a href='' target='_blank' ><i class="im im-instagram"></i></a>
+              <a href='https://github.com/lanna817/' target='_blank' ><i class="im im-github"></i></a>
+              <a href='https://www.linkedin.com/in/yohlannacort/' target='_blank' ><i class="im im-linkedin"></i></a>
+              <a href='https://www.instagram.com/?hl=en' target='_blank' ><i class="im im-instagram"></i></a>
             </div>
           </div>
         </div>

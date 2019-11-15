@@ -1,7 +1,7 @@
 import React from 'react';
 import { getProject, apply, approve } from '../services/api-helper.js';
 import { Link } from 'react-router-dom'
-import GroupPic from '../images/group.jpg'
+// import GroupPic from '../images/group.jpg'
 
 
 export default class Project extends React.Component {
@@ -117,7 +117,7 @@ export default class Project extends React.Component {
             <div className="project">
               <div className="left">
                 {this.state.currentProject.image_url ? <img src={this.state.currentProject.image_url} alt="current project" /> :
-                  <img src={GroupPic} alt="" />}
+                  <img src={'https://media.giphy.com/media/6d5uiY7qMnZ9m/source.gif'} alt="" />}
               </div>
               <div className="right">
                 <div className="project-text">
