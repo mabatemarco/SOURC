@@ -805,6 +805,14 @@ color: #bada55;
   color: var(--primary);
 }
 
+#abt-title{
+  font-family: var(--secFont);
+}
+
+#abt-title span {
+  color: #bada55;
+}
+
 /* ============================================ ABOUT ========================================== */
 
 
@@ -909,7 +917,9 @@ color: #bada55;
   padding: 50px;
   color: black
 }
-
+#new-projtitle {
+  font-size: 35px;
+}
 #new-projtitle span{
   color:white;
   font-weight: bolder;
@@ -960,6 +970,7 @@ textarea{
   text-align: center;
   font-family: var(--secFont);
   color: white;
+  font-size: 40px;
 
 }
 
@@ -972,8 +983,9 @@ textarea{
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   color: black;
+  padding-top: 50px;
 
 }
 
@@ -999,7 +1011,7 @@ textarea{
   border: 1px solid black;
   width: 600px;
   border-radius: 15px;
-  height: 300px;
+  height: 400px;
   background-color: white;
   padding:20px;
   margin: 20px;
@@ -1029,6 +1041,8 @@ textarea{
   color: black;
   opacity: 0.85;
   padding: 20px;
+  display:flex;
+  justify-content: flex-end;
 }
 
 #edit-btn {

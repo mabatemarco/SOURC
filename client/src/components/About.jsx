@@ -8,7 +8,7 @@ export default function About(props) {
   return (
     <div className="container">
 
-      <h1>About Us</h1>
+      <h1 id='abt-title'>About <span>Us</span></h1>
 
       <div className="card ">
         <div className='inner'>
@@ -54,9 +54,9 @@ export default function About(props) {
             <h2>Yohlanna Cort</h2>
             <h3>Junior Software Developer</h3>
             <div className='social-links'>
-              <a href='' target='_blank' ><i class="https://github.com/lanna817/"></i></a>
-              <a href='' target='_blank' ><i class="https://www.linkedin.com/in/yohlannacort/"></i></a>
-              <a href='' target='_blank' ><i class="https://www.instagram.com/?hl=en"></i></a>
+              <a href='https://github.com/lanna817/' target='_blank' ><i class="im im-github"></i></a>
+              <a href='https://www.linkedin.com/in/yohlannacort/' target='_blank' ><i class="im im-linkedin"></i></a>
+              <a href='https://www.instagram.com/?hl=en' target='_blank' ><i class="im im-instagram"></i></a>
             </div>
           </div>
         </div>

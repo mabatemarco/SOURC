@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import EditProfile from './EditProfile';
 import { getUser, deleteUser} from '../services/api-helper.js';
-import { img } from '../images/collab-wel.jpg';
 import GroupPic from '../images/group.jpg';
 
 
@@ -52,7 +51,7 @@ export default class Profile extends React.Component {
             <div className='name-pro'>
               <div className="pro-image">
                 {this.state.profile.image_url ? <img src={this.state.profile.image_url} width='318px' height='auto' alt="current project" /> :
-                  <img src={img} width='318px' height='auto' alt="game peice" />}
+                  <img src={'https://media.giphy.com/media/KVbwYtTO0stPi/source.mp4'} width='318px' height='auto' alt="man walking" />}
               <h2 id='name'>{this.state.profile.username}</h2>
               </div>
               <div className='brief-pro'>
