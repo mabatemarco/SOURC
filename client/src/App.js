@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Link, Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Footer from './components/Footer'
 import Register from './components/Register'
 import LoggedIn from './components/LoggedIn'
 import Welcome from './components/Welcome'
 import Login from './components/Login';
-import About from './components/About'
-import { verifyUser, loginUser, registerUser } from './services/api-helper'
+import { verifyUser, loginUser, registerUser, getUser, editUser } from './services/api-helper'
 
 
 class App extends React.Component {
@@ -27,7 +26,17 @@ class App extends React.Component {
       image_url: ''
     },
     showLogin: false,
-    falseLogin: false
+    falseLogin: false,
+    profile: null,
+    profileData: {
+      username: '',
+      password_digest: '',
+      name: '',
+      email_address: '',
+      role: '',
+      about_me: '',
+      image_url: ''
+    }
   }
 
   componentDidMount() {
@@ -69,7 +78,6 @@ class App extends React.Component {
         currentUser,
         showLogin: false
       })
-      this.props.history.push('/')
     }
   }
 
@@ -98,6 +106,50 @@ class App extends React.Component {
     this.props.history.push('/')
   }
 
+  setFormData = () => {
+    if (this.state.profile) {
+      const {
+        username,
+        password_digest,
+        name,
+        email_address,
+        role,
+        about_me,
+        image_url
+      } = this.state.profile
+
+      this.setState({
+        profileData: {
+          username,
+          password_digest,
+          name,
+          email_address,
+          role,
+          about_me,
+          image_url
+        }
+      })
+    }
+  }
+
+  handleEditChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      profileData: {
+        ...prevState.profileData,
+        [name]: value
+      }
+    })
+    )
+  }
+
+  handleEditSubmit = async (e) => {
+    e.preventDefault()
+    const profile = await editUser(this.state.profile.id, this.state.profileData);
+    this.setState({ profile })
+    this.props.history.push(`/profiles/${this.state.profile.id}`)
+  }
+
   render() {
     return (
       <div className="app">
@@ -115,6 +167,9 @@ class App extends React.Component {
             <LoggedIn
               currentUser={this.state.currentUser}
               handleLogout={this.handleLogout}
+              profileData={this.state.profileData}
+              handleEditChange={this.handleEditChange}
+              handleEditSubmit={this.handleEditSubmit}
             />
           )} />
           :

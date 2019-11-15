@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const userRouter = Router();
 const { User, Project, Team } = require('../models');
-const { restrict } = require('../services/auth')
 
 
 //get all users
@@ -35,7 +34,7 @@ userRouter.put('/:id', async (req, res) => {
 
 //delete user
 userRouter.delete('/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const user = await User.findByPk(id);
   await user.destroy;
   res.json(user)

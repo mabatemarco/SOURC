@@ -1,12 +1,15 @@
 const { Router } = require('express');
 const projectRouter = Router();
 const { User, Project, Team } = require('../models');
-const { restrict } = require('../services/auth')
 
 
 //get all projects
 projectRouter.get('/', async (req, res) => {
-  const projects = await Project.findAll();
+  const projects = await Project.findAll({
+    order: [
+      ['updated_at', 'DESC'],
+    ],
+  });
   res.json(projects)
 })
 
@@ -37,7 +40,7 @@ projectRouter.post('/create/:creatorId', async (req, res) => {
 
 //edit project, takes project data
 projectRouter.put('/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const data = req.body;
   const project = await Project.findByPk(id);
   await project.update(data);
@@ -46,7 +49,7 @@ projectRouter.put('/:id', async (req, res) => {
 
 //delete project
 projectRouter.delete('/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const project = await Project.findByPk(id);
   await project.destroy
 })
@@ -62,21 +65,13 @@ projectRouter.put('/:projectId/apply/:userId', async (req, res) => {
 })
 
 //leader function to approve user for project
-projectRouter.put('/:projectid/approve/:userId', async (req, res) => {
-  const projectId = req.params.projectId;
-  const userId = req.params.userId;
+projectRouter.put('/:projectId/approve/:userId', async (req, res) => {
+  const projectId = parseInt(req.params.projectId);
+  const userId = parseInt(req.params.userId);
   const project = await Project.findByPk(projectId);
   const user = await User.findByPk(userId);
-  const team = await Team.findAll({
-    where: {
-      user_id: user.id,
-      project_id: project.id
-    }
-  })
-  team.update({
-    is_member: true
-  })
-  res.json(team)
+  await project.addUser(user, { through: { is_member: true, is_leader: false } })
+  res.json(project)
 })
 
 

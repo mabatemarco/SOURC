@@ -3,7 +3,7 @@ import React from 'react'
 export default function CreateProject(props) {
   return (
     <div className="new-project-pg">
-      <h1>Create Your New Project Below</h1>
+      <h1 id='new-projtitle'>Create <span>Your</span> New <span>Project </span></h1>
       <form id="project" onSubmit={props.handleProjectSubmit} >
 
         <label htmlFor="name">Project Name</label>

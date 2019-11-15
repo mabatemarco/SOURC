@@ -1,12 +1,22 @@
 const { Sequelize } = require('sequelize')
 
-sequelize = new Sequelize({
-  database: 'sourc_db',
-  dialect: 'postgres',
-  define: {
-    underscored: true
-  }
-});
+let sequelize;
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    define: {
+      underscored: true
+    }
+  });
+} else {
+  sequelize = new Sequelize({
+    database: 'sourc_db',
+    dialect: 'postgres',
+    define: {
+      underscored: true,
+    },
+  });
+}
 
 class User extends Sequelize.Model { }
 class Project extends Sequelize.Model { }
@@ -39,7 +49,7 @@ User.init({
   })
 
 Project.init({
-  name: Sequelize.STRING,
+  name: Sequelize.TEXT,
   description: Sequelize.TEXT,
   image_url: {
     type: Sequelize.TEXT,
@@ -78,21 +88,12 @@ Team.init({
 User.belongsToMany(Project,
   {
     through: Team,
-    // as: "projects",
-    // foreignKey: 'user_id',
-    // otherKey: 'project_id',
-    // onDelete: 'cascade'
   });
-// Team.hasMany(User)
+
 Project.belongsToMany(User,
   {
     through: Team,
-    // as: "users",
-    // foreignKey: 'project_id',
-    // otherKey: 'user_id',
-    // onDelete: 'cascade'
   });
-// Team.hasMany(Project)
 
 module.exports = {
   sequelize,
