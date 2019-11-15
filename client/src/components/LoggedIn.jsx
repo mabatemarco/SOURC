@@ -140,10 +140,12 @@ class LoggedIn extends React.Component {
 
 
         <Route exact path='/editprofile' render={(props) => (
+
                 <EditProfile
                   handleEditChange={this.props.handleEditChange}
                   handleEditSubmit={this.props.handleEditSubmit}
                   profileData={this.props.profileData} />)} />
+
       </div >
     )
   }

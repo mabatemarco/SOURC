@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "http://localhost:3000"
 })
 
-//runs on page start to see if user has logged in before
+// runs on page start to see if user has logged in before
 export const verifyUser = async () => {
   const token = localStorage.getItem('authToken');
   if (token) {
@@ -30,8 +30,6 @@ export const loginUser = async (loginData) => {
 //register new user, takes username and password
 export const registerUser = async (registerData) => {
   const resp = await api.post('/auth/register', registerData)
-  localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
   return resp.data.user
 }
 

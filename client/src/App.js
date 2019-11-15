@@ -79,7 +79,6 @@ class App extends React.Component {
         currentUser,
         showLogin: false
       })
-      this.props.history.push('/')
     }
   }
 
