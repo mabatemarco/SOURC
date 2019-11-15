@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: ""
 })
 
 // runs on page start to see if user has logged in before
